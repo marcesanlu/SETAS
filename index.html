@@ -1,0 +1,3092 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Cultivo de Pleurotus (Hongos Ostra)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .infographic-section {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 25px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08), 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 10px solid;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .infographic-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, rgba(59,130,246,0.05) 50%, transparent 100%);
+            border-radius: 50%;
+        }
+        
+        .section-intro { border-left-color: #2563eb; background: linear-gradient(135deg, #dbeafe 0%, #f0f9ff 100%); }
+        .section-seed { border-left-color: #059669; background: linear-gradient(135deg, #d1fae5 0%, #ecfdf5 100%); }
+        .section-substrate { border-left-color: #d97706; background: linear-gradient(135deg, #fed7aa 0%, #fef3c7 100%); }
+        .section-cultivation { border-left-color: #7c3aed; background: linear-gradient(135deg, #e9d5ff 0%, #f3e8ff 100%); }
+        .section-harvest { border-left-color: #dc2626; background: linear-gradient(135deg, #fecaca 0%, #fef2f2 100%); }
+        .section-problems { border-left-color: #ea580c; background: linear-gradient(135deg, #fed7aa 0%, #fff7ed 100%); }
+        .section-parameters { border-left-color: #0891b2; background: linear-gradient(135deg, #a5f3fc 0%, #cffafe 100%); }
+        
+        .icon-large {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(15px);
+            border: 3px solid rgba(255,255,255,0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.2) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .stat-card:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .mushroom-icon {
+            background: linear-gradient(45deg, #f59e0b, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 3rem;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .process-step {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid;
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .comparison-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table th {
+            padding: 1rem;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+        }
+        
+        .comparison-table td {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .problem-card {
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+            border: 2px solid #fca5a5;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .solution-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+            color: #065f46;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin: 0.25rem;
+        }
+        
+        .timeline-visual {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .timeline-visual::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #3b82f6, #8b5cf6);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 45%;
+            margin: 0 2rem;
+            border-left: 4px solid;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(-50%);
+            font-size: 1.2rem;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .mushroom-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f1f5f9' fill-opacity='0.3'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm0 0c0-11.046 8.954-20 20-20s20 8.954 20 20-8.954 20-20 20-20-8.954-20-20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .floating-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 mushroom-pattern">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-20 relative overflow-hidden">
+        <!-- Elementos decorativos de fondo -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-10 left-10 text-6xl">🦪</div>
+            <div class="absolute top-20 right-20 text-4xl">🌾</div>
+            <div class="absolute bottom-20 left-20 text-5xl">🌱</div>
+            <div class="absolute bottom-10 right-10 text-3xl">💧</div>
+            <div class="absolute top-1/2 left-1/4 text-7xl transform -rotate-12">🍄</div>
+            <div class="absolute top-1/3 right-1/3 text-5xl transform rotate-12">🦪</div>
+        </div>
+        
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <!-- Icono principal animado -->
+            <div class="floating-animation inline-block mb-6">
+                <div class="relative">
+                    <div class="text-9xl mb-2">🦪</div>
+                    <div class="absolute -top-2 -right-2 text-3xl animate-pulse">✨</div>
+                </div>
+            </div>
+            
+            <h1 class="text-6xl md:text-8xl font-bold mb-4 bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">
+                CULTIVO DE PLEUROTUS
+            </h1>
+            <h2 class="text-3xl md:text-4xl opacity-90 mb-4 font-light">
+                Hongos Ostra - Guía Visual Completa
+            </h2>
+            
+            <!-- Créditos en el encabezado -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 mb-8 max-w-2xl mx-auto border border-white/20">
+                <div class="text-lg font-semibold mb-2">👨‍🏫 Creado por:</div>
+                <div class="grid md:grid-cols-2 gap-3">
+                    <div class="bg-white/10 p-3 rounded-xl">
+                        <div class="font-bold text-yellow-200">Marcela Sandoval Luna</div>
+                        <div class="text-sm opacity-80">Instructor Campesena - 2025</div>
+                    </div>
+                    <div class="bg-white/10 p-3 rounded-xl">
+                        <div class="font-bold text-yellow-200">Solmar David Califa Rodriguez</div>
+                        <div class="text-sm opacity-80">Instructor Campesena - 2025</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Estadísticas mejoradas -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <div class="stat-card group">
+                    <div class="mushroom-icon mb-3">🦪</div>
+                    <div class="text-4xl font-bold text-blue-600 mb-2">7</div>
+                    <div class="text-sm text-gray-700 font-medium">Módulos Técnicos</div>
+                </div>
+                <div class="stat-card group">
+                    <div class="mushroom-icon mb-3">🌡️</div>
+                    <div class="text-4xl font-bold text-green-600 mb-2">15-20°C</div>
+                    <div class="text-sm text-gray-700 font-medium">Temp. Fructificación</div>
+                </div>
+                <div class="stat-card group">
+                    <div class="mushroom-icon mb-3">💧</div>
+                    <div class="text-4xl font-bold text-cyan-600 mb-2">85-95%</div>
+                    <div class="text-sm text-gray-700 font-medium">Humedad Relativa</div>
+                </div>
+                <div class="stat-card group">
+                    <div class="mushroom-icon mb-3">📊</div>
+                    <div class="text-4xl font-bold text-purple-600 mb-2">15-25%</div>
+                    <div class="text-sm text-gray-700 font-medium">Eficiencia Biológica</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-8">
+        
+        <!-- Sección 1: Introducción y Conceptos Básicos -->
+        <section class="infographic-section section-intro">
+            <div class="flex items-center mb-6">
+                <span class="icon-large">📚</span>
+                <div>
+                    <h2 class="text-3xl font-bold text-blue-800">Conceptos Básicos</h2>
+                    <p class="text-blue-600">Fundamentos del cultivo de hongos comestibles</p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                        <span class="text-2xl mr-2">🔬</span>
+                        ¿Qué son los Macromicetos? - Fundamentos Científicos
+                    </h3>
+                    <div class="space-y-4">
+                        <!-- Definición expandida -->
+                        <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                            <h4 class="font-bold text-blue-800 mb-3 flex items-center">
+                                <span class="text-xl mr-2">🧬</span>
+                                Definición y Clasificación Taxonómica
+                            </h4>
+                            <p class="text-gray-700 mb-4">
+                                Los <strong>macromicetos</strong> son hongos superiores del Reino Fungi, caracterizados por formar cuerpos fructíferos (basidiocarpos o ascocarpos) visibles a simple vista. Pertenecen principalmente a las divisiones <em>Basidiomycota</em> y <em>Ascomycota</em>.
+                            </p>
+                            
+                            <!-- Anatomía del hongo con SVG -->
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h5 class="font-semibold text-blue-700 mb-2">🏗️ Anatomía del Cuerpo Fructífero:</h5>
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <svg width="200" height="150" viewBox="0 0 200 150" class="mx-auto">
+                                            <!-- Pie (estípite) -->
+                                            <rect x="95" y="80" width="10" height="50" fill="#f8f9fa" stroke="#495057" stroke-width="1"/>
+                                            <!-- Sombrero (píleo) -->
+                                            <ellipse cx="100" cy="75" rx="40" ry="20" fill="#6c757d" opacity="0.8"/>
+                                            <ellipse cx="100" cy="72" rx="35" ry="17" fill="#adb5bd"/>
+                                            <!-- Láminas (himenio) -->
+                                            <g stroke="#495057" stroke-width="0.5">
+                                                <line x1="65" y1="75" x2="135" y2="75"/>
+                                                <line x1="68" y1="78" x2="132" y2="78"/>
+                                                <line x1="71" y1="81" x2="129" y2="81"/>
+                                            </g>
+                                            <!-- Etiquetas -->
+                                            <text x="50" y="65" font-size="10" fill="#495057">Píleo (sombrero)</text>
+                                            <line x1="65" y1="68" x2="85" y2="72" stroke="#495057" stroke-width="0.5"/>
+                                            
+                                            <text x="140" y="85" font-size="10" fill="#495057">Himenio (láminas)</text>
+                                            <line x1="135" y1="82" x2="125" y2="78" stroke="#495057" stroke-width="0.5"/>
+                                            
+                                            <text x="110" y="110" font-size="10" fill="#495057">Estípite (pie)</text>
+                                            <line x1="110" y1="107" x2="105" y2="100" stroke="#495057" stroke-width="0.5"/>
+                                            
+                                            <!-- Micelio subterráneo -->
+                                            <g stroke="#28a745" stroke-width="1" opacity="0.7">
+                                                <path d="M 80 130 Q 90 125 100 130 Q 110 135 120 130" fill="none"/>
+                                                <path d="M 85 135 Q 95 130 105 135 Q 115 140 125 135" fill="none"/>
+                                            </g>
+                                            <text x="70" y="145" font-size="10" fill="#28a745">Micelio vegetativo</text>
+                                        </svg>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h5 class="font-semibold text-blue-700 mb-2">📋 Tipos Morfológicos:</h5>
+                                    <div class="space-y-2 text-sm">
+                                        <div class="bg-white p-3 rounded border-l-4 border-blue-400">
+                                            <strong>🦪 Setas (Pleurotus):</strong>
+                                            <p class="text-gray-600">Pie lateral o excéntrico, crecen en grupos sobre madera</p>
+                                        </div>
+                                        <div class="bg-white p-3 rounded border-l-4 border-green-400">
+                                            <strong>🍄 Champiñones (Agaricus):</strong>
+                                            <p class="text-gray-600">Pie central, crecen en suelo o compost</p>
+                                        </div>
+                                        <div class="bg-white p-3 rounded border-l-4 border-orange-400">
+                                            <strong>🪵 Repisas (Ganoderma):</strong>
+                                            <p class="text-gray-600">Sin pie, crecen directamente sobre troncos</p>
+                                        </div>
+                                        <div class="bg-white p-3 rounded border-l-4 border-purple-400">
+                                            <strong>🌸 Corales (Ramaria):</strong>
+                                            <p class="text-gray-600">Forma ramificada, parecen corales</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ciclo de vida expandido -->
+                        <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg border-l-4 border-green-500">
+                            <h4 class="font-bold text-green-800 mb-4 flex items-center">
+                                <span class="text-xl mr-2">🔄</span>
+                                Ciclo de Vida Completo de los Hongos
+                            </h4>
+                            
+                            <!-- Diagrama del ciclo de vida -->
+                            <div class="bg-white p-6 rounded-lg mb-4">
+                                <svg width="100%" height="300" viewBox="0 0 600 300" class="mx-auto">
+                                    <!-- Círculo del ciclo -->
+                                    <circle cx="300" cy="150" r="120" fill="none" stroke="#28a745" stroke-width="3" stroke-dasharray="5,5"/>
+                                    
+                                    <!-- Etapa 1: Espora -->
+                                    <circle cx="300" cy="50" r="15" fill="#ffc107"/>
+                                    <text x="300" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">1. ESPORA</text>
+                                    <text x="300" y="15" text-anchor="middle" font-size="10" fill="#6c757d">Célula reproductiva</text>
+                                    
+                                    <!-- Etapa 2: Germinación -->
+                                    <circle cx="450" cy="100" r="15" fill="#28a745"/>
+                                    <path d="M 450 100 L 470 110 L 465 105 L 475 115" stroke="#28a745" stroke-width="2" fill="none"/>
+                                    <text x="480" y="95" font-size="12" font-weight="bold" fill="#495057">2. GERMINACIÓN</text>
+                                    <text x="480" y="108" font-size="10" fill="#6c757d">Formación de hifas</text>
+                                    
+                                    <!-- Etapa 3: Micelio -->
+                                    <g transform="translate(450,200)">
+                                        <path d="M 0 0 Q 10 -5 20 0 Q 30 5 40 0" stroke="#28a745" stroke-width="3" fill="none"/>
+                                        <path d="M 5 -10 Q 15 -15 25 -10 Q 35 -5 45 -10" stroke="#28a745" stroke-width="2" fill="none"/>
+                                    </g>
+                                    <text x="480" y="190" font-size="12" font-weight="bold" fill="#495057">3. MICELIO</text>
+                                    <text x="480" y="203" font-size="10" fill="#6c757d">Red de hifas</text>
+                                    
+                                    <!-- Etapa 4: Primordio -->
+                                    <ellipse cx="300" cy="250" rx="8" ry="15" fill="#6c757d"/>
+                                    <text x="300" y="275" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">4. PRIMORDIO</text>
+                                    <text x="300" y="288" text-anchor="middle" font-size="10" fill="#6c757d">Inicio del hongo</text>
+                                    
+                                    <!-- Etapa 5: Hongo maduro -->
+                                    <g transform="translate(150,200)">
+                                        <rect x="15" y="20" width="6" height="25" fill="#f8f9fa" stroke="#495057"/>
+                                        <ellipse cx="18" cy="20" rx="20" ry="12" fill="#6c757d"/>
+                                    </g>
+                                    <text x="120" y="190" font-size="12" font-weight="bold" fill="#495057">5. HONGO MADURO</text>
+                                    <text x="120" y="203" font-size="10" fill="#6c757d">Produce esporas</text>
+                                    
+                                    <!-- Etapa 6: Liberación -->
+                                    <g transform="translate(150,100)">
+                                        <circle cx="0" cy="0" r="2" fill="#ffc107"/>
+                                        <circle cx="5" cy="-3" r="1.5" fill="#ffc107"/>
+                                        <circle cx="-3" cy="4" r="1.5" fill="#ffc107"/>
+                                        <circle cx="8" cy="2" r="1" fill="#ffc107"/>
+                                    </g>
+                                    <text x="120" y="95" font-size="12" font-weight="bold" fill="#495057">6. LIBERACIÓN</text>
+                                    <text x="120" y="108" font-size="10" fill="#6c757d">Dispersión de esporas</text>
+                                    
+                                    <!-- Flechas direccionales -->
+                                    <defs>
+                                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                            <polygon points="0 0, 10 3.5, 0 7" fill="#28a745"/>
+                                        </marker>
+                                    </defs>
+                                    
+                                    <path d="M 320 65 Q 380 80 435 90" fill="none" stroke="#28a745" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                    <path d="M 465 115 Q 480 150 465 185" fill="none" stroke="#28a745" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                    <path d="M 435 210 Q 380 220 320 235" fill="none" stroke="#28a745" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                    <path d="M 280 235 Q 220 220 165 210" fill="none" stroke="#28a745" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                    <path d="M 155 185 Q 140 150 155 115" fill="none" stroke="#28a745" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                    <path d="M 165 90 Q 220 80 280 65" fill="none" stroke="#28a745" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                </svg>
+                            </div>
+                            
+                            <!-- Detalles de cada etapa -->
+                            <div class="grid md:grid-cols-3 gap-4 text-sm">
+                                <div class="bg-white p-3 rounded">
+                                    <strong class="text-yellow-700">🌱 Fase Sexual:</strong>
+                                    <p class="text-gray-600 mt-1">Fusión de núcleos compatibles, meiosis, formación de esporas haploides</p>
+                                </div>
+                                <div class="bg-white p-3 rounded">
+                                    <strong class="text-green-700">🔬 Fase Vegetativa:</strong>
+                                    <p class="text-gray-600 mt-1">Crecimiento del micelio, absorción de nutrientes, colonización del sustrato</p>
+                                </div>
+                                <div class="bg-white p-3 rounded">
+                                    <strong class="text-blue-700">🍄 Fase Reproductiva:</strong>
+                                    <p class="text-gray-600 mt-1">Formación de primordios, desarrollo del cuerpo fructífero, liberación de esporas</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Características biológicas -->
+                        <div class="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500">
+                            <h4 class="font-bold text-purple-800 mb-3 flex items-center">
+                                <span class="text-xl mr-2">🧪</span>
+                                Características Biológicas Fundamentales
+                            </h4>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h5 class="font-semibold text-purple-700 mb-2">🔬 Nivel Celular:</h5>
+                                    <ul class="text-sm space-y-1 text-gray-700">
+                                        <li>• <strong>Pared celular:</strong> Quitina y β-glucanos</li>
+                                        <li>• <strong>Núcleo:</strong> Eucariotas con núcleo definido</li>
+                                        <li>• <strong>Organelos:</strong> Mitocondrias, retículo endoplasmático</li>
+                                        <li>• <strong>Vacuolas:</strong> Almacenamiento y turgencia</li>
+                                        <li>• <strong>Septos:</strong> Divisiones en las hifas</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-purple-700 mb-2">⚗️ Nivel Metabólico:</h5>
+                                    <ul class="text-sm space-y-1 text-gray-700">
+                                        <li>• <strong>Nutrición:</strong> Heterótrofos saprofitos</li>
+                                        <li>• <strong>Digestión:</strong> Externa mediante enzimas</li>
+                                        <li>• <strong>Respiración:</strong> Aeróbica obligada</li>
+                                        <li>• <strong>Reservas:</strong> Glucógeno y lípidos</li>
+                                        <li>• <strong>pH:</strong> Toleran rangos amplios (4-8)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                        <span class="text-2xl mr-2">🦪</span>
+                        Variedades de Pleurotus con Imágenes
+                    </h3>
+                    <div class="space-y-6">
+                        <!-- Pleurotus ostreatus - DESTACADO -->
+                        <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-xl shadow-lg border-l-4 border-blue-500 transform hover:scale-105 transition-all duration-300">
+                            <div class="flex items-start space-x-4">
+                                <!-- Imagen SVG de P. ostreatus -->
+                                <div class="flex-shrink-0">
+                                    <svg width="120" height="120" viewBox="0 0 120 120" class="rounded-lg shadow-md bg-white p-2">
+                                        <!-- Pie del hongo -->
+                                        <rect x="55" y="70" width="10" height="35" fill="#f8f9fa" stroke="#e9ecef" stroke-width="1"/>
+                                        <!-- Sombrero principal -->
+                                        <ellipse cx="60" cy="65" rx="35" ry="20" fill="#6c757d" opacity="0.9"/>
+                                        <ellipse cx="60" cy="62" rx="32" ry="18" fill="#adb5bd"/>
+                                        <ellipse cx="60" cy="60" rx="28" ry="15" fill="#dee2e6"/>
+                                        <!-- Láminas -->
+                                        <g stroke="#495057" stroke-width="0.5" opacity="0.7">
+                                            <line x1="32" y1="65" x2="88" y2="65"/>
+                                            <line x1="35" y1="68" x2="85" y2="68"/>
+                                            <line x1="38" y1="71" x2="82" y2="71"/>
+                                        </g>
+                                        <!-- Brillo -->
+                                        <ellipse cx="50" cy="55" rx="15" ry="8" fill="white" opacity="0.3"/>
+                                        <!-- Texto identificativo -->
+                                        <text x="60" y="110" text-anchor="middle" font-size="8" fill="#495057" font-weight="bold">P. ostreatus</text>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center mb-2">
+                                        <span class="text-3xl mr-3">🦪</span>
+                                        <div>
+                                            <div class="font-bold text-blue-800 text-lg">Pleurotus ostreatus</div>
+                                            <div class="text-sm text-blue-600 font-medium">🏆 "ORELLANA" - Variedad Estrella Mundial</div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white/70 p-4 rounded-lg mb-3">
+                                        <div class="grid md:grid-cols-2 gap-3 text-sm">
+                                            <div>
+                                                <strong class="text-blue-700">🌡️ Temperaturas:</strong>
+                                                <ul class="text-gray-700 mt-1">
+                                                    <li>• Incubación: 20-25°C</li>
+                                                    <li>• Fructificación: 15-20°C</li>
+                                                    <li>• Tolerancia: 10-30°C</li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <strong class="text-blue-700">📊 Rendimientos:</strong>
+                                                <ul class="text-gray-700 mt-1">
+                                                    <li>• Eficiencia biológica: 15-25%</li>
+                                                    <li>• Hasta 30% en condiciones óptimas</li>
+                                                    <li>• 3-4 cosechas por ciclo</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gradient-to-r from-green-100 to-blue-100 p-3 rounded-lg">
+                                        <strong class="text-green-800">🌟 Ventajas Únicas:</strong>
+                                        <div class="text-sm text-gray-700 mt-1">
+                                            • Más resistente a variaciones climáticas • Crecimiento rápido y vigoroso • Excelente sabor y textura • Fácil cultivo para principiantes • Mayor vida útil postcosecha
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pleurotus djamor -->
+                        <div class="flex items-start bg-gradient-to-r from-purple-50 to-purple-100 p-4 rounded-xl shadow-sm border-l-4 border-purple-500 space-x-4">
+                            <div class="flex-shrink-0">
+                                <svg width="80" height="80" viewBox="0 0 80 80" class="rounded-lg shadow-md bg-white p-1">
+                                    <rect x="37" y="50" width="6" height="20" fill="#f8f9fa" stroke="#e9ecef"/>
+                                    <ellipse cx="40" cy="45" rx="25" ry="15" fill="#e91e63" opacity="0.8"/>
+                                    <ellipse cx="40" cy="43" rx="22" ry="12" fill="#f06292"/>
+                                    <ellipse cx="40" cy="41" rx="18" ry="10" fill="#f8bbd9"/>
+                                    <ellipse cx="32" cy="38" rx="8" ry="5" fill="white" opacity="0.4"/>
+                                    <text x="40" y="75" text-anchor="middle" font-size="6" fill="#495057" font-weight="bold">P. djamor</text>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <div class="font-bold text-purple-800">Pleurotus djamor</div>
+                                <div class="text-sm text-purple-600 mb-1">Hongo Ostra Rosa - Atractivo color rosado</div>
+                                <div class="text-xs bg-white/50 p-2 rounded">Temp: 20-30°C | Rendimiento: 12-20% | Sustrato: Paja, algodón | Mercado gourmet</div>
+                            </div>
+                        </div>
+
+                        <!-- Pleurotus citrinopileatus -->
+                        <div class="flex items-start bg-gradient-to-r from-yellow-50 to-yellow-100 p-4 rounded-xl shadow-sm border-l-4 border-yellow-500 space-x-4">
+                            <div class="flex-shrink-0">
+                                <svg width="80" height="80" viewBox="0 0 80 80" class="rounded-lg shadow-md bg-white p-1">
+                                    <rect x="37" y="50" width="6" height="20" fill="#f8f9fa" stroke="#e9ecef"/>
+                                    <ellipse cx="40" cy="45" rx="25" ry="15" fill="#ffc107" opacity="0.9"/>
+                                    <ellipse cx="40" cy="43" rx="22" ry="12" fill="#ffeb3b"/>
+                                    <ellipse cx="40" cy="41" rx="18" ry="10" fill="#fff9c4"/>
+                                    <ellipse cx="32" cy="38" rx="8" ry="5" fill="white" opacity="0.5"/>
+                                    <text x="40" y="75" text-anchor="middle" font-size="6" fill="#495057" font-weight="bold">P. citrinopileatus</text>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <div class="font-bold text-yellow-800">Pleurotus citrinopileatus</div>
+                                <div class="text-sm text-yellow-600 mb-1">Hongo Ostra Amarillo - Sabor delicado</div>
+                                <div class="text-xs bg-white/50 p-2 rounded">Temp: 18-24°C | Rendimiento: 10-18% | Sustrato: Aserrín, paja | Textura firme</div>
+                            </div>
+                        </div>
+
+                        <!-- Pleurotus eryngii -->
+                        <div class="flex items-start bg-gradient-to-r from-gray-50 to-gray-100 p-4 rounded-xl shadow-sm border-l-4 border-gray-500 space-x-4">
+                            <div class="flex-shrink-0">
+                                <svg width="80" height="80" viewBox="0 0 80 80" class="rounded-lg shadow-md bg-white p-1">
+                                    <rect x="35" y="35" width="10" height="35" fill="#e9ecef" stroke="#adb5bd"/>
+                                    <ellipse cx="40" cy="35" rx="20" ry="12" fill="#6c757d" opacity="0.8"/>
+                                    <ellipse cx="40" cy="33" rx="18" ry="10" fill="#adb5bd"/>
+                                    <ellipse cx="40" cy="31" rx="15" ry="8" fill="#dee2e6"/>
+                                    <ellipse cx="33" cy="28" rx="6" ry="4" fill="white" opacity="0.4"/>
+                                    <text x="40" y="75" text-anchor="middle" font-size="6" fill="#495057" font-weight="bold">P. eryngii</text>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <div class="font-bold text-gray-800">Pleurotus eryngii</div>
+                                <div class="text-sm text-gray-600 mb-1">Hongo Rey - Pie carnoso y sabroso</div>
+                                <div class="text-xs bg-white/50 p-2 rounded">Temp: 12-18°C | Rendimiento: 8-15% | Sustrato: Aserrín suplementado | Alto valor</div>
+                            </div>
+                        </div>
+
+                        <!-- Pleurotus pulmonarius -->
+                        <div class="flex items-start bg-gradient-to-r from-green-50 to-green-100 p-4 rounded-xl shadow-sm border-l-4 border-green-500 space-x-4">
+                            <div class="flex-shrink-0">
+                                <svg width="80" height="80" viewBox="0 0 80 80" class="rounded-lg shadow-md bg-white p-1">
+                                    <rect x="37" y="50" width="6" height="20" fill="#f8f9fa" stroke="#e9ecef"/>
+                                    <ellipse cx="40" cy="45" rx="25" ry="15" fill="#28a745" opacity="0.7"/>
+                                    <ellipse cx="40" cy="43" rx="22" ry="12" fill="#6f9654"/>
+                                    <ellipse cx="40" cy="41" rx="18" ry="10" fill="#a8d5a8"/>
+                                    <ellipse cx="32" cy="38" rx="8" ry="5" fill="white" opacity="0.4"/>
+                                    <text x="40" y="75" text-anchor="middle" font-size="6" fill="#495057" font-weight="bold">P. pulmonarius</text>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <div class="font-bold text-green-800">Pleurotus pulmonarius</div>
+                                <div class="text-sm text-green-600 mb-1">Hongo Ostra de Verano - Resistente al calor</div>
+                                <div class="text-xs bg-white/50 p-2 rounded">Temp: 20-30°C | Rendimiento: 12-22% | Sustrato: Diversos residuos | Clima tropical</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección Especial: Pleurotus ostreatus "ORELLANA" -->
+            <div class="mb-8 bg-gradient-to-r from-blue-100 via-indigo-100 to-purple-100 p-8 rounded-2xl border-4 border-blue-300 shadow-2xl">
+                <div class="text-center mb-6">
+                    <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full mb-4 shadow-lg">
+                        <span class="text-4xl">👑</span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-blue-800 mb-2 flex items-center justify-center">
+                        <span class="text-4xl mr-3">🦪</span>
+                        PLEUROTUS OSTREATUS "ORELLANA"
+                    </h3>
+                    <div class="text-xl text-blue-600 font-semibold">🏆 LA VARIEDAD ESTRELLA MUNDIAL</div>
+                </div>
+
+                <!-- Características destacadas -->
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-blue-200">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl mb-2">🌟</div>
+                            <h4 class="font-bold text-blue-800">Características Únicas</h4>
+                        </div>
+                        <ul class="text-sm space-y-2 text-gray-700">
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Adaptabilidad excepcional</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Resistencia a patógenos</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Crecimiento vigoroso</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Sabor umami intenso</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Textura carnosa ideal</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-green-200">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl mb-2">📊</div>
+                            <h4 class="font-bold text-green-800">Rendimientos Superiores</h4>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="bg-gradient-to-r from-green-100 to-blue-100 p-3 rounded-lg">
+                                <div class="text-2xl font-bold text-green-700 text-center">15-30%</div>
+                                <div class="text-sm text-center text-gray-600">Eficiencia Biológica</div>
+                            </div>
+                            <div class="text-sm space-y-1">
+                                <div class="flex justify-between">
+                                    <span>1ª Cosecha:</span>
+                                    <span class="font-semibold text-green-600">70-80%</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>2ª Cosecha:</span>
+                                    <span class="font-semibold text-blue-600">15-20%</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>3ª Cosecha:</span>
+                                    <span class="font-semibold text-purple-600">5-10%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-purple-200">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl mb-2">🌡️</div>
+                            <h4 class="font-bold text-purple-800">Tolerancia Climática</h4>
+                        </div>
+                        <div class="space-y-3 text-sm">
+                            <div class="bg-blue-50 p-2 rounded">
+                                <strong>Incubación:</strong> 18-28°C
+                            </div>
+                            <div class="bg-green-50 p-2 rounded">
+                                <strong>Fructificación:</strong> 12-22°C
+                            </div>
+                            <div class="bg-yellow-50 p-2 rounded">
+                                <strong>Humedad:</strong> 80-95%
+                            </div>
+                            <div class="bg-purple-50 p-2 rounded">
+                                <strong>Tolerancia:</strong> Muy alta
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ventajas competitivas -->
+                <div class="bg-white/70 backdrop-blur-sm p-6 rounded-xl border border-blue-200">
+                    <h4 class="text-xl font-bold text-blue-800 mb-4 text-center">🚀 ¿Por qué elegir Pleurotus ostreatus "Orellana"?</h4>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h5 class="font-semibold text-green-700 mb-3">🌱 Ventajas Agronómicas:</h5>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">▶</span>
+                                    <div>
+                                        <strong>Colonización rápida:</strong> 12-18 días vs 20-25 días de otras variedades
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-500 mr-2 mt-1">▶</span>
+                                    <div>
+                                        <strong>Amplio rango de sustratos:</strong> Paja, pulpa café, residuos agrícolas diversos
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-purple-500 mr-2 mt-1">▶</span>
+                                    <div>
+                                        <strong>Menor susceptibilidad:</strong> Resistente a Trichoderma y bacterias
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-orange-500 mr-2 mt-1">▶</span>
+                                    <div>
+                                        <strong>Fructificación sincronizada:</strong> Cosechas uniformes y predecibles
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-semibold text-blue-700 mb-3">💰 Ventajas Comerciales:</h5>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">▶</span>
+                                    <div>
+                                        <strong>Mayor vida útil:</strong> 8-12 días refrigerado vs 5-7 días promedio
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-500 mr-2 mt-1">▶</span>
+                                    <div>
+                                        <strong>Presentación atractiva:</strong> Racimos compactos, color uniforme
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-purple-500 mr-2 mt-1">▶</span>
+                                    <div>
+                                        <strong>Versatilidad culinaria:</strong> Excelente fresco, deshidratado o procesado
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-orange-500 mr-2 mt-1">▶</span>
+                                    <div>
+                                        <strong>Demanda constante:</strong> Mercado establecido y en crecimiento
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Datos de producción mundial -->
+                <div class="mt-6 bg-gradient-to-r from-indigo-50 to-blue-50 p-4 rounded-xl">
+                    <div class="text-center mb-3">
+                        <h5 class="font-bold text-indigo-800">📈 Datos de Producción Mundial - Pleurotus ostreatus</h5>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm">
+                        <div class="bg-white/70 p-3 rounded-lg">
+                            <div class="text-2xl font-bold text-blue-600">65%</div>
+                            <div class="text-gray-600">Del total de Pleurotus</div>
+                        </div>
+                        <div class="bg-white/70 p-3 rounded-lg">
+                            <div class="text-2xl font-bold text-green-600">2.8M</div>
+                            <div class="text-gray-600">Toneladas/año</div>
+                        </div>
+                        <div class="bg-white/70 p-3 rounded-lg">
+                            <div class="text-2xl font-bold text-purple-600">85%</div>
+                            <div class="text-gray-600">Cultivos comerciales</div>
+                        </div>
+                        <div class="bg-white/70 p-3 rounded-lg">
+                            <div class="text-2xl font-bold text-orange-600">$4.2B</div>
+                            <div class="text-gray-600">Valor de mercado</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mercado Global -->
+            <div class="mb-8 bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl">
+                <h3 class="text-xl font-bold text-blue-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">🌍</span>
+                    Mercado Mundial de Hongos
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-blue-600">$50B</div>
+                        <div class="text-sm text-gray-600">Mercado global 2023</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-green-600">8.7%</div>
+                        <div class="text-sm text-gray-600">Crecimiento anual</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-purple-600">40M</div>
+                        <div class="text-sm text-gray-600">Toneladas/año</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-orange-600">75%</div>
+                        <div class="text-sm text-gray-600">Producción Asia</div>
+                    </div>
+                </div>
+                <div class="text-sm text-gray-700">
+                    <strong>Principales productores:</strong> China (75%), Italia, Polonia, Estados Unidos, Países Bajos
+                </div>
+            </div>
+            
+            <!-- Datos Curiosos y Fascinantes -->
+            <div class="mb-8 bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded-xl">
+                <h3 class="text-xl font-bold text-indigo-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">🤯</span>
+                    Datos Fascinantes del Reino Fungi
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-3 text-sm">
+                        <div class="bg-white p-3 rounded-lg border-l-4 border-indigo-400">
+                            <strong class="text-indigo-700">🌍 Diversidad:</strong>
+                            <p class="text-gray-700">Existen más de 140,000 especies de hongos descritas, pero se estima que hay entre 2.2 y 3.8 millones de especies en total.</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg border-l-4 border-purple-400">
+                            <strong class="text-purple-700">🧬 Genética:</strong>
+                            <p class="text-gray-700">Los hongos están más relacionados genéticamente con los animales que con las plantas. Compartimos un ancestro común hace 1.5 mil millones de años.</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg border-l-4 border-pink-400">
+                            <strong class="text-pink-700">🌐 Internet Natural:</strong>
+                            <p class="text-gray-700">El micelio forma redes subterráneas que conectan plantas y árboles, conocidas como "Wood Wide Web", facilitando el intercambio de nutrientes.</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div class="bg-white p-3 rounded-lg border-l-4 border-green-400">
+                            <strong class="text-green-700">⚡ Velocidad:</strong>
+                            <p class="text-gray-700">Algunos hongos pueden crecer hasta 35 cm en una sola noche. El micelio puede extenderse varios kilómetros bajo tierra.</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg border-l-4 border-yellow-400">
+                            <strong class="text-yellow-700">🏆 Récord:</strong>
+                            <p class="text-gray-700">El organismo vivo más grande del mundo es un hongo Armillaria ostoyae en Oregon, que cubre 2,400 hectáreas y tiene 2,400 años.</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg border-l-4 border-red-400">
+                            <strong class="text-red-700">🧪 Medicina:</strong>
+                            <p class="text-gray-700">La penicilina, el primer antibiótico, proviene del hongo Penicillium. Los hongos han salvado millones de vidas humanas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Valor Nutricional Expandido -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">💪</span>
+                    Perfil Nutricional Completo (por 100g peso seco)
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                    <div class="stat-card bg-gradient-to-br from-green-100 to-green-200">
+                        <div class="text-2xl font-bold text-green-700">20-40g</div>
+                        <div class="text-sm text-green-600">Proteína completa</div>
+                        <div class="text-xs text-gray-500">Todos los aminoácidos</div>
+                    </div>
+                    <div class="stat-card bg-gradient-to-br from-blue-100 to-blue-200">
+                        <div class="text-2xl font-bold text-blue-700">25-35g</div>
+                        <div class="text-sm text-blue-600">Fibra dietética</div>
+                        <div class="text-xs text-gray-500">β-glucanos</div>
+                    </div>
+                    <div class="stat-card bg-gradient-to-br from-purple-100 to-purple-200">
+                        <div class="text-2xl font-bold text-purple-700">B1,B2,B12</div>
+                        <div class="text-sm text-purple-600">Vitaminas B</div>
+                        <div class="text-xs text-gray-500">+ Vitamina D2</div>
+                    </div>
+                    <div class="stat-card bg-gradient-to-br from-orange-100 to-orange-200">
+                        <div class="text-2xl font-bold text-orange-700">K,P,Se</div>
+                        <div class="text-sm text-orange-600">Minerales</div>
+                        <div class="text-xs text-gray-500">+ Zinc, Cobre</div>
+                    </div>
+                </div>
+                
+                <!-- Beneficios para la salud -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-green-500">
+                    <h4 class="font-bold text-green-800 mb-3">🏥 Beneficios para la Salud</h4>
+                    <div class="grid md:grid-cols-3 gap-4 text-sm">
+                        <div>
+                            <strong>Inmunológicos:</strong>
+                            <ul class="list-disc list-inside text-gray-600 mt-1">
+                                <li>Estimulan sistema inmune</li>
+                                <li>Propiedades antivirales</li>
+                                <li>Actividad antitumoral</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong>Cardiovasculares:</strong>
+                            <ul class="list-disc list-inside text-gray-600 mt-1">
+                                <li>Reducen colesterol</li>
+                                <li>Controlan presión arterial</li>
+                                <li>Mejoran circulación</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong>Metabólicos:</strong>
+                            <ul class="list-disc list-inside text-gray-600 mt-1">
+                                <li>Regulan glucosa</li>
+                                <li>Apoyan pérdida peso</li>
+                                <li>Mejoran digestión</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aplicaciones Biotecnológicas -->
+            <div class="mb-8 bg-gradient-to-r from-cyan-50 to-teal-50 p-6 rounded-xl">
+                <h3 class="text-xl font-bold text-cyan-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">🔬</span>
+                    Aplicaciones Biotecnológicas Innovadoras
+                </h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-cyan-400">
+                        <h4 class="font-semibold text-cyan-700 mb-2">🏗️ Biomateriales</h4>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>• Cuero de micelio (alternativa al cuero animal)</li>
+                            <li>• Materiales de construcción (ladrillos de micelio)</li>
+                            <li>• Empaques biodegradables</li>
+                            <li>• Espumas aislantes naturales</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-teal-400">
+                        <h4 class="font-semibold text-teal-700 mb-2">🌱 Biorremediación</h4>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>• Limpieza de suelos contaminados</li>
+                            <li>• Degradación de plásticos</li>
+                            <li>• Filtración de metales pesados</li>
+                            <li>• Tratamiento de aguas residuales</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-400">
+                        <h4 class="font-semibold text-blue-700 mb-2">💊 Farmacología</h4>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>• Producción de antibióticos</li>
+                            <li>• Compuestos anticancerígenos</li>
+                            <li>• Inmunomoduladores naturales</li>
+                            <li>• Neuroprotectores (Hericium)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ventajas del Cultivo -->
+            <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-xl">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">✅</span>
+                    Ventajas del Cultivo de Hongos
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-green-800 mb-2">🌱 Ambientales</h4>
+                        <ul class="text-sm space-y-1 text-gray-700">
+                            <li>• Aprovecha residuos agrícolas</li>
+                            <li>• Bajo consumo de agua (90% menos que vegetales)</li>
+                            <li>• Mínima huella de carbono</li>
+                            <li>• Produce compost de alta calidad</li>
+                            <li>• No requiere pesticidas</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-blue-800 mb-2">💰 Económicas</h4>
+                        <ul class="text-sm space-y-1 text-gray-700">
+                            <li>• Alta rentabilidad (ROI 200-400%)</li>
+                            <li>• Ciclos cortos (30-60 días)</li>
+                            <li>• Poco espacio requerido</li>
+                            <li>• Mercado en crecimiento</li>
+                            <li>• Múltiples productos (fresco, seco, polvo)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 2: Producción de Semilla -->
+        <section class="infographic-section section-seed">
+            <div class="flex items-center mb-6">
+                <span class="icon-large">🌱</span>
+                <div>
+                    <h2 class="text-3xl font-bold text-green-800">Producción de Semilla</h2>
+                    <p class="text-green-600">Proceso completo de obtención de inóculo</p>
+                </div>
+            </div>
+            
+            <!-- Tipos de Semilla -->
+            <div class="mb-8 bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-xl">
+                <h3 class="text-xl font-bold text-green-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">🧬</span>
+                    Tipos de Inóculo
+                </h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-400">
+                        <h4 class="font-semibold text-green-700 mb-2">🧪 Cultivo Madre</h4>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>• Agar PDA o MEA</li>
+                            <li>• Vida útil: 6-12 meses</li>
+                            <li>• Temperatura: 4°C</li>
+                            <li>• Base para multiplicación</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
+                        <h4 class="font-semibold text-green-700 mb-2">🌾 Semilla en Grano</h4>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>• Trigo, sorgo, mijo</li>
+                            <li>• Vida útil: 3-6 meses</li>
+                            <li>• Temperatura: 2-4°C</li>
+                            <li>• Uso directo en sustrato</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-600">
+                        <h4 class="font-semibold text-green-700 mb-2">🧽 Semilla Líquida</h4>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>• Micelio en suspensión</li>
+                            <li>• Vida útil: 2-4 semanas</li>
+                            <li>• Temperatura: 4°C</li>
+                            <li>• Inoculación rápida</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-visual mb-8">
+                <div class="timeline-item">
+                    <div class="timeline-marker bg-green-500">1</div>
+                    <div class="timeline-content border-l-green-500">
+                        <h4 class="font-bold text-lg mb-2">🧪 Obtención de Cepas</h4>
+                        <p class="text-gray-600 mb-3">Aislamiento desde esporas o tejido estéril</p>
+                        <div class="bg-green-50 p-3 rounded mb-2">
+                            <strong>Métodos de aislamiento:</strong>
+                            <ul class="text-sm mt-1 space-y-1">
+                                <li>• <strong>Esporas:</strong> Impresión esporular en agar</li>
+                                <li>• <strong>Tejido:</strong> Fragmentos internos estériles</li>
+                                <li>• <strong>Comercial:</strong> Cepas certificadas</li>
+                            </ul>
+                        </div>
+                        <div class="text-sm text-green-600">
+                            <strong>Medios:</strong> PDA + antibióticos, MEA, Agar agua
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker bg-green-600">2</div>
+                    <div class="timeline-content border-l-green-600">
+                        <h4 class="font-bold text-lg mb-2">🔬 Multiplicación en Laboratorio</h4>
+                        <p class="text-gray-600 mb-3">Cultivo en medios nutritivos estériles</p>
+                        <div class="bg-green-50 p-3 rounded mb-2">
+                            <strong>Condiciones óptimas:</strong>
+                            <ul class="text-sm mt-1 space-y-1">
+                                <li>• Temperatura: 22-25°C</li>
+                                <li>• pH: 5.5-6.5</li>
+                                <li>• Humedad: 70-80%</li>
+                                <li>• Oscuridad total</li>
+                            </ul>
+                        </div>
+                        <div class="text-sm text-green-600">
+                            <strong>Tiempo:</strong> 7-14 días para colonización completa
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker bg-green-700">3</div>
+                    <div class="timeline-content border-l-green-700">
+                        <h4 class="font-bold text-lg mb-2">🌾 Semilla Primaria (F1)</h4>
+                        <p class="text-gray-600 mb-3">Inoculación en granos esterilizados</p>
+                        <div class="bg-green-50 p-3 rounded mb-2">
+                            <strong>Preparación del grano:</strong>
+                            <ul class="text-sm mt-1 space-y-1">
+                                <li>• Cocción: 45-60 min</li>
+                                <li>• Humedad: 45-50%</li>
+                                <li>• Esterilización: 121°C, 60 min</li>
+                                <li>• Enfriamiento estéril</li>
+                            </ul>
+                        </div>
+                        <div class="text-sm text-green-600">
+                            <strong>Rendimiento:</strong> 1 placa → 10-20 frascos F1
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker bg-green-800">4</div>
+                    <div class="timeline-content border-l-green-800">
+                        <h4 class="font-bold text-lg mb-2">📦 Semilla Comercial (F2)</h4>
+                        <p class="text-gray-600 mb-3">Escalamiento para producción masiva</p>
+                        <div class="bg-green-50 p-3 rounded mb-2">
+                            <strong>Proceso de escalamiento:</strong>
+                            <ul class="text-sm mt-1 space-y-1">
+                                <li>• F1 → F2: Ratio 1:10</li>
+                                <li>• Incubación: 15-21 días</li>
+                                <li>• Agitación periódica</li>
+                                <li>• Control de temperatura</li>
+                            </ul>
+                        </div>
+                        <div class="text-sm text-green-600">
+                            <strong>Capacidad:</strong> 1 kg F2 inocula 20-50 kg sustrato
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulación de Medios -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">⚗️</span>
+                    Formulación de Medios de Cultivo
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-green-500">
+                        <h4 class="font-semibold text-green-800 mb-3">🧪 Medio PDA (por litro)</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span>Papa (extracto)</span>
+                                <span class="font-semibold">200g</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Dextrosa</span>
+                                <span class="font-semibold">20g</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Agar</span>
+                                <span class="font-semibold">15g</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Agua destilada</span>
+                                <span class="font-semibold">1000ml</span>
+                            </div>
+                            <hr class="my-2">
+                            <div class="text-xs text-gray-600">
+                                pH final: 5.6 ± 0.2 | Esterilizar 121°C, 15 min
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-green-600">
+                        <h4 class="font-semibold text-green-800 mb-3">🌾 Preparación de Grano</h4>
+                        <div class="space-y-3 text-sm">
+                            <div>
+                                <strong>1. Selección:</strong>
+                                <p class="text-gray-600">Granos enteros, sin daños, libres de moho</p>
+                            </div>
+                            <div>
+                                <strong>2. Lavado:</strong>
+                                <p class="text-gray-600">Agua corriente hasta eliminar impurezas</p>
+                            </div>
+                            <div>
+                                <strong>3. Cocción:</strong>
+                                <p class="text-gray-600">45-60 min hasta textura firme</p>
+                            </div>
+                            <div>
+                                <strong>4. Escurrido:</strong>
+                                <p class="text-gray-600">Eliminar exceso de agua, 45-50% humedad</p>
+                            </div>
+                            <div>
+                                <strong>5. Envasado:</strong>
+                                <p class="text-gray-600">Frascos o bolsas con filtro</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Control de Calidad Expandido -->
+            <div class="mb-8 bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+                <h3 class="text-xl font-bold text-green-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">✅</span>
+                    Control de Calidad Integral
+                </h3>
+                <div class="grid md:grid-cols-3 gap-6 mb-6">
+                    <div class="text-center">
+                        <div class="text-4xl mb-3">🔍</div>
+                        <div class="font-semibold text-green-800">Pureza</div>
+                        <div class="text-sm text-gray-600 mt-2">
+                            • Sin bacterias<br>
+                            • Sin levaduras<br>
+                            • Sin otros hongos<br>
+                            • Micelio blanco uniforme
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-3">⚡</div>
+                        <div class="font-semibold text-green-800">Viabilidad</div>
+                        <div class="text-sm text-gray-600 mt-2">
+                            • Crecimiento activo<br>
+                            • Velocidad normal<br>
+                            • Densidad adecuada<br>
+                            • Sin sectores degenerados
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-3">🎯</div>
+                        <div class="font-semibold text-green-800">Identidad</div>
+                        <div class="text-sm text-gray-600 mt-2">
+                            • Morfología correcta<br>
+                            • Características típicas<br>
+                            • Pruebas moleculares<br>
+                            • Trazabilidad completa
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pruebas de Calidad -->
+                <div class="bg-white p-4 rounded-lg">
+                    <h4 class="font-semibold text-green-800 mb-3">🧪 Pruebas de Rutina</h4>
+                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <strong>Microbiológicas:</strong>
+                            <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
+                                <li>Conteo de contaminantes</li>
+                                <li>Identificación de patógenos</li>
+                                <li>Pruebas de esterilidad</li>
+                                <li>Viabilidad del micelio</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong>Físico-químicas:</strong>
+                            <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
+                                <li>Contenido de humedad</li>
+                                <li>pH del sustrato</li>
+                                <li>Densidad de inoculación</li>
+                                <li>Tiempo de colonización</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Técnicas Avanzadas de Cultivo -->
+            <div class="mb-8 bg-gradient-to-r from-violet-50 to-purple-50 p-6 rounded-xl">
+                <h3 class="text-xl font-bold text-violet-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">🚀</span>
+                    Técnicas Avanzadas de Cultivo
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-violet-700 mb-3">🧬 Cultivo de Tejidos</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="bg-white p-3 rounded border-l-4 border-violet-400">
+                                <strong>Micropropagación:</strong>
+                                <p class="text-gray-600">Multiplicación masiva a partir de células individuales en medios especializados</p>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-purple-400">
+                                <strong>Protoplastos:</strong>
+                                <p class="text-gray-600">Fusión de células sin pared para crear híbridos con características mejoradas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-violet-700 mb-3">🤖 Automatización</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="bg-white p-3 rounded border-l-4 border-indigo-400">
+                                <strong>IoT Sensors:</strong>
+                                <p class="text-gray-600">Monitoreo en tiempo real de temperatura, humedad, CO₂ y pH</p>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-blue-400">
+                                <strong>IA Predictiva:</strong>
+                                <p class="text-gray-600">Algoritmos que predicen rendimientos y detectan problemas tempranamente</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Almacenamiento y Conservación -->
+            <div class="bg-gradient-to-r from-emerald-50 to-green-50 p-6 rounded-xl">
+                <h3 class="text-xl font-bold text-green-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">❄️</span>
+                    Almacenamiento y Conservación
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-green-700 mb-3">🌡️ Condiciones de Almacenamiento</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="bg-white p-3 rounded">
+                                <strong>Cultivos madre:</strong>
+                                <p class="text-gray-600">2-4°C, oscuridad, 6-12 meses</p>
+                            </div>
+                            <div class="bg-white p-3 rounded">
+                                <strong>Semilla en grano:</strong>
+                                <p class="text-gray-600">2-4°C, ventilación, 3-6 meses</p>
+                            </div>
+                            <div class="bg-white p-3 rounded">
+                                <strong>Semilla líquida:</strong>
+                                <p class="text-gray-600">4°C, agitación, 2-4 semanas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-green-700 mb-3">📋 Registro y Trazabilidad</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span>Fecha de producción</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span>Lote de origen</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span>Resultados de calidad</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span>Condiciones de almacenamiento</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span>Fecha de vencimiento</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span>Historial de uso</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 3: Sustratos y Formulación -->
+        <section class="infographic-section section-substrate">
+            <div class="flex items-center mb-6">
+                <span class="icon-large">🌾</span>
+                <div>
+                    <h2 class="text-3xl font-bold text-yellow-800">Sustratos y Formulación</h2>
+                    <p class="text-yellow-600">Selección y preparación de materiales</p>
+                </div>
+            </div>
+            
+            <!-- Clasificación de Sustratos -->
+            <div class="mb-8 bg-gradient-to-r from-yellow-50 to-orange-50 p-6 rounded-xl">
+                <h3 class="text-xl font-bold text-yellow-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">📋</span>
+                    Clasificación de Sustratos
+                </h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-yellow-400">
+                        <h4 class="font-semibold text-yellow-700 mb-2">🌾 Materiales Base</h4>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>• Alto contenido de carbono</li>
+                            <li>• Estructura física adecuada</li>
+                            <li>• Disponibilidad constante</li>
+                            <li>• Bajo costo</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-yellow-500">
+                        <h4 class="font-semibold text-yellow-700 mb-2">🥜 Suplementos Nitrogenados</h4>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>• Rico en proteínas</li>
+                            <li>• Mejora rendimiento</li>
+                            <li>• Acelera colonización</li>
+                            <li>• 5-20% del total</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-yellow-600">
+                        <h4 class="font-semibold text-yellow-700 mb-2">🧪 Aditivos Especiales</h4>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>• Reguladores de pH</li>
+                            <li>• Mejoradores de estructura</li>
+                            <li>• Fuentes minerales</li>
+                            <li>• Antioxidantes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tabla de Materiales Expandida -->
+            <div class="comparison-table mb-8">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="bg-gradient-to-r from-yellow-500 to-yellow-600">
+                            <th>Material</th>
+                            <th>C/N</th>
+                            <th>Humedad (%)</th>
+                            <th>pH</th>
+                            <th>Uso Principal</th>
+                            <th>Disponibilidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-semibold">🌾 Paja de Trigo</td>
+                            <td>80-120</td>
+                            <td>8-12</td>
+                            <td>6.0-7.0</td>
+                            <td>Base principal</td>
+                            <td class="text-green-600">Alta</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="font-semibold">☕ Pulpa de Café</td>
+                            <td>20-25</td>
+                            <td>10-12</td>
+                            <td>5.5-6.0</td>
+                            <td>Suplemento N</td>
+                            <td class="text-green-600">Alta</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">🌾 Salvado de Trigo</td>
+                            <td>12-16</td>
+                            <td>10-14</td>
+                            <td>6.0-6.5</td>
+                            <td>Suplemento N</td>
+                            <td class="text-yellow-600">Media</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="font-semibold">🌿 Bagazo de Caña</td>
+                            <td>150-200</td>
+                            <td>8-10</td>
+                            <td>5.0-6.0</td>
+                            <td>Base carbono</td>
+                            <td class="text-green-600">Alta</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">🌾 Cascarilla Arroz</td>
+                            <td>120-150</td>
+                            <td>8-12</td>
+                            <td>6.0-7.0</td>
+                            <td>Aireación</td>
+                            <td class="text-green-600">Alta</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="font-semibold">🌽 Olote de Maíz</td>
+                            <td>60-80</td>
+                            <td>10-15</td>
+                            <td>6.5-7.0</td>
+                            <td>Base/estructura</td>
+                            <td class="text-green-600">Alta</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">🌳 Aserrín Duro</td>
+                            <td>200-500</td>
+                            <td>8-15</td>
+                            <td>5.5-6.5</td>
+                            <td>Shiitake/Reishi</td>
+                            <td class="text-yellow-600">Media</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="font-semibold">🥥 Fibra de Coco</td>
+                            <td>75-100</td>
+                            <td>10-15</td>
+                            <td>5.8-6.8</td>
+                            <td>Base/retención</td>
+                            <td class="text-yellow-600">Media</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">🌾 Residuos Cervecería</td>
+                            <td>15-25</td>
+                            <td>75-80</td>
+                            <td>4.5-5.5</td>
+                            <td>Suplemento rico</td>
+                            <td class="text-green-600">Alta</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="font-semibold">🍃 Hojas de Plátano</td>
+                            <td>40-60</td>
+                            <td>12-18</td>
+                            <td>6.0-7.0</td>
+                            <td>Base tropical</td>
+                            <td class="text-green-600">Alta</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">🌱 Residuos Quinoa</td>
+                            <td>25-35</td>
+                            <td>8-12</td>
+                            <td>6.5-7.5</td>
+                            <td>Suplemento andino</td>
+                            <td class="text-yellow-600">Media</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Formulaciones por Variedad de Pleurotus -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">🧪</span>
+                    Formulaciones Específicas por Variedad de Pleurotus
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl shadow-lg border-l-4 border-blue-500">
+                        <h4 class="font-semibold text-blue-800 mb-4 flex items-center">
+                            <span class="text-2xl mr-2">🦪</span>
+                            Pleurotus ostreatus
+                        </h4>
+                        <div class="space-y-4 text-sm">
+                            <div class="bg-white/70 p-4 rounded-lg border border-blue-200">
+                                <strong class="text-blue-700">🌾 Formulación Básica (Paja):</strong>
+                                <ul class="mt-2 space-y-1 text-gray-700">
+                                    <li>• Paja de trigo picada: 80%</li>
+                                    <li>• Pulpa de café seca: 15%</li>
+                                    <li>• Salvado de trigo: 5%</li>
+                                </ul>
+                                <div class="mt-3 p-2 bg-blue-100 rounded text-xs">
+                                    <strong>C/N:</strong> 45-55 | <strong>Rendimiento:</strong> 15-20%
+                                </div>
+                            </div>
+                            <div class="bg-white/70 p-4 rounded-lg border border-blue-200">
+                                <strong class="text-blue-700">⭐ Formulación Premium:</strong>
+                                <ul class="mt-2 space-y-1 text-gray-700">
+                                    <li>• Paja de trigo: 65%</li>
+                                    <li>• Pulpa de café: 25%</li>
+                                    <li>• Salvado de trigo: 8%</li>
+                                    <li>• Carbonato de calcio: 2%</li>
+                                </ul>
+                                <div class="mt-3 p-2 bg-green-100 rounded text-xs">
+                                    <strong>C/N:</strong> 35-45 | <strong>Rendimiento:</strong> 20-25%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl shadow-lg border-l-4 border-purple-500">
+                        <h4 class="font-semibold text-purple-800 mb-4 flex items-center">
+                            <span class="text-2xl mr-2">🟣</span>
+                            Pleurotus djamor (Rosa)
+                        </h4>
+                        <div class="space-y-4 text-sm">
+                            <div class="bg-white/70 p-4 rounded-lg border border-purple-200">
+                                <strong class="text-purple-700">🌸 Formulación Tropical:</strong>
+                                <ul class="mt-2 space-y-1 text-gray-700">
+                                    <li>• Residuos de algodón: 70%</li>
+                                    <li>• Pulpa de café: 20%</li>
+                                    <li>• Salvado de arroz: 8%</li>
+                                    <li>• Cal agrícola: 2%</li>
+                                </ul>
+                                <div class="mt-3 p-2 bg-purple-100 rounded text-xs">
+                                    <strong>C/N:</strong> 30-40 | <strong>Rendimiento:</strong> 12-18%
+                                </div>
+                            </div>
+                            <div class="bg-white/70 p-4 rounded-lg border border-purple-200">
+                                <strong class="text-purple-700">🌾 Formulación Alternativa:</strong>
+                                <ul class="mt-2 space-y-1 text-gray-700">
+                                    <li>• Paja de arroz: 75%</li>
+                                    <li>• Bagazo de caña: 15%</li>
+                                    <li>• Salvado de trigo: 8%</li>
+                                    <li>• Yeso: 2%</li>
+                                </ul>
+                                <div class="mt-3 p-2 bg-pink-100 rounded text-xs">
+                                    <strong>C/N:</strong> 40-50 | <strong>Rendimiento:</strong> 15-20%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Formulaciones adicionales -->
+                <div class="grid md:grid-cols-2 gap-6 mt-6">
+                    <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-xl shadow-lg border-l-4 border-yellow-500">
+                        <h4 class="font-semibold text-yellow-800 mb-4 flex items-center">
+                            <span class="text-2xl mr-2">🟡</span>
+                            Pleurotus citrinopileatus
+                        </h4>
+                        <div class="bg-white/70 p-4 rounded-lg border border-yellow-200">
+                            <strong class="text-yellow-700">🌟 Formulación Especializada:</strong>
+                            <ul class="mt-2 space-y-1 text-gray-700 text-sm">
+                                <li>• Aserrín de maderas duras: 60%</li>
+                                <li>• Paja de trigo: 25%</li>
+                                <li>• Salvado de trigo: 12%</li>
+                                <li>• Carbonato de calcio: 3%</li>
+                            </ul>
+                            <div class="mt-3 p-2 bg-yellow-100 rounded text-xs">
+                                <strong>C/N:</strong> 50-70 | <strong>Rendimiento:</strong> 10-15%
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl shadow-lg border-l-4 border-green-500">
+                        <h4 class="font-semibold text-green-800 mb-4 flex items-center">
+                            <span class="text-2xl mr-2">🟢</span>
+                            Pleurotus pulmonarius
+                        </h4>
+                        <div class="bg-white/70 p-4 rounded-lg border border-green-200">
+                            <strong class="text-green-700">🔥 Formulación Resistente al Calor:</strong>
+                            <ul class="mt-2 space-y-1 text-gray-700 text-sm">
+                                <li>• Bagazo de caña: 50%</li>
+                                <li>• Cascarilla de arroz: 30%</li>
+                                <li>• Pulpa de café: 15%</li>
+                                <li>• Salvado de arroz: 5%</li>
+                            </ul>
+                            <div class="mt-3 p-2 bg-green-100 rounded text-xs">
+                                <strong>C/N:</strong> 60-80 | <strong>Rendimiento:</strong> 12-20%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Proceso de Preparación Detallado -->
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                        <span class="text-2xl mr-2">⚙️</span>
+                        Proceso de Preparación
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="process-step border-l-yellow-500">
+                            <div class="step-number bg-yellow-500">1</div>
+                            <div class="ml-8">
+                                <div class="font-semibold">Selección y Limpieza</div>
+                                <div class="text-sm text-gray-600">
+                                    Materiales frescos, sin moho, libre de contaminantes químicos
+                                </div>
+                                <div class="text-xs text-yellow-600 mt-1">
+                                    Inspección visual, eliminación de impurezas
+                                </div>
+                            </div>
+                        </div>
+                        <div class="process-step border-l-yellow-600">
+                            <div class="step-number bg-yellow-600">2</div>
+                            <div class="ml-8">
+                                <div class="font-semibold">Reducción de Tamaño</div>
+                                <div class="text-sm text-gray-600">
+                                    Picado 2-5 cm, molienda según necesidad
+                                </div>
+                                <div class="text-xs text-yellow-600 mt-1">
+                                    Facilita colonización y manejo
+                                </div>
+                            </div>
+                        </div>
+                        <div class="process-step border-l-yellow-700">
+                            <div class="step-number bg-yellow-700">3</div>
+                            <div class="ml-8">
+                                <div class="font-semibold">Formulación y Mezcla</div>
+                                <div class="text-sm text-gray-600">
+                                    Pesado preciso, mezcla homogénea
+                                </div>
+                                <div class="text-xs text-yellow-600 mt-1">
+                                    Ajuste de humedad y pH
+                                </div>
+                            </div>
+                        </div>
+                        <div class="process-step border-l-yellow-800">
+                            <div class="step-number bg-yellow-800">4</div>
+                            <div class="ml-8">
+                                <div class="font-semibold">Tratamiento Térmico</div>
+                                <div class="text-sm text-gray-600">
+                                    Pasteurización 65-80°C o esterilización 121°C
+                                </div>
+                                <div class="text-xs text-yellow-600 mt-1">
+                                    Eliminación de competidores
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                        <span class="text-2xl mr-2">🧮</span>
+                        Cálculos de Formulación
+                    </h3>
+                    <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 mb-4">
+                        <div class="mb-4">
+                            <div class="font-semibold text-yellow-800">Fórmula C/N:</div>
+                            <div class="bg-white p-3 rounded mt-2 font-mono text-sm">
+                                C/N = Σ(Mi × C/Ni) / ΣMi
+                            </div>
+                            <div class="text-xs text-gray-600 mt-1">
+                                Mi = masa del material i, C/Ni = relación C/N del material i
+                            </div>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div><strong>Pleurotus:</strong> C/N óptimo 30-100</div>
+                            <div><strong>Shiitake:</strong> C/N óptimo 40-80</div>
+                            <div><strong>Reishi:</strong> C/N óptimo 25-35</div>
+                            <div><strong>Agaricus:</strong> C/N óptimo 25-30</div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <h4 class="font-semibold mb-3">📊 Ejemplo Práctico:</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span>Paja trigo (C/N=80)</span>
+                                <span class="font-semibold">70 kg</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Pulpa café (C/N=20)</span>
+                                <span class="font-semibold">20 kg</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Salvado trigo (C/N=15)</span>
+                                <span class="font-semibold">10 kg</span>
+                            </div>
+                            <hr class="my-2">
+                            <div class="flex justify-between font-bold">
+                                <span>C/N resultante</span>
+                                <span class="text-green-600">≈ 52</span>
+                            </div>
+                            <div class="text-xs text-gray-600">
+                                Cálculo: (70×80 + 20×20 + 10×15) / 100 = 52
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tratamientos del Sustrato -->
+            <div class="mb-8 bg-gradient-to-r from-orange-50 to-red-50 p-6 rounded-xl">
+                <h3 class="text-xl font-bold text-orange-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">🔥</span>
+                    Métodos de Tratamiento del Sustrato
+                </h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-400">
+                        <h4 class="font-semibold text-orange-700 mb-2">🌡️ Pasteurización</h4>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>• Temperatura: 65-80°C</li>
+                            <li>• Tiempo: 1-8 horas</li>
+                            <li>• Conserva microflora benéfica</li>
+                            <li>• Menor costo energético</li>
+                            <li>• Ideal para Pleurotus</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-500">
+                        <h4 class="font-semibold text-orange-700 mb-2">♨️ Esterilización</h4>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>• Temperatura: 121°C</li>
+                            <li>• Tiempo: 60-120 min</li>
+                            <li>• Elimina todos los microorganismos</li>
+                            <li>• Mayor costo energético</li>
+                            <li>• Necesario para Shiitake</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-600">
+                        <h4 class="font-semibold text-orange-700 mb-2">🧪 Tratamiento Químico</h4>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>• Cal hidratada (pH 12)</li>
+                            <li>• Tiempo: 12-24 horas</li>
+                            <li>• Bajo costo</li>
+                            <li>• Requiere neutralización</li>
+                            <li>• Para materiales duros</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ciencia de la Fermentación -->
+            <div class="mb-8 bg-gradient-to-r from-amber-50 to-yellow-50 p-6 rounded-xl">
+                <h3 class="text-xl font-bold text-amber-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">🧪</span>
+                    Ciencia de la Fermentación y Enzimas
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-amber-700 mb-3">⚗️ Enzimas Clave</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="bg-white p-3 rounded border-l-4 border-amber-400">
+                                <strong>Celulasas:</strong>
+                                <p class="text-gray-600">Degradan celulosa en azúcares simples. Esenciales para sustratos lignocelulósicos.</p>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-yellow-400">
+                                <strong>Lignin Peroxidasas:</strong>
+                                <p class="text-gray-600">Rompen lignina, permitiendo acceso a celulosa. Exclusivas de hongos de pudrición blanca.</p>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-orange-400">
+                                <strong>Lacasas:</strong>
+                                <p class="text-gray-600">Oxidan compuestos fenólicos. Importantes en biorremediación y blanqueamiento.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-amber-700 mb-3">🔄 Procesos Metabólicos</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="bg-white p-3 rounded border-l-4 border-red-400">
+                                <strong>Respiración:</strong>
+                                <p class="text-gray-600">C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ATP. Fase de crecimiento vegetativo.</p>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-green-400">
+                                <strong>Fermentación:</strong>
+                                <p class="text-gray-600">Proceso anaeróbico que produce metabolitos secundarios bioactivos.</p>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-blue-400">
+                                <strong>Síntesis de Proteínas:</strong>
+                                <p class="text-gray-600">Conversión de nitrógeno inorgánico en proteínas de alta calidad.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Control de Calidad del Sustrato -->
+            <div class="bg-yellow-50 p-6 rounded-xl border-l-4 border-yellow-500">
+                <h3 class="text-xl font-bold text-yellow-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">🔍</span>
+                    Control de Calidad del Sustrato
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-yellow-700 mb-3">📊 Parámetros Físico-químicos</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="bg-white p-3 rounded flex justify-between">
+                                <span><strong>Humedad:</strong></span>
+                                <span class="text-green-600">65-75%</span>
+                            </div>
+                            <div class="bg-white p-3 rounded flex justify-between">
+                                <span><strong>pH:</strong></span>
+                                <span class="text-green-600">6.0-7.5</span>
+                            </div>
+                            <div class="bg-white p-3 rounded flex justify-between">
+                                <span><strong>C/N:</strong></span>
+                                <span class="text-green-600">25-100</span>
+                            </div>
+                            <div class="bg-white p-3 rounded flex justify-between">
+                                <span><strong>Densidad:</strong></span>
+                                <span class="text-green-600">0.3-0.6 g/cm³</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-yellow-700 mb-3">🦠 Parámetros Microbiológicos</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span>Ausencia de patógenos</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span>Conteo bacteriano < 10⁶ UFC/g</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span>Sin hongos competidores</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span>Actividad enzimática adecuada</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span>Microflora benéfica presente</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 4: Proceso de Cultivo -->
+        <section class="infographic-section section-cultivation">
+            <div class="flex items-center mb-6">
+                <span class="icon-large">⚙️</span>
+                <div>
+                    <h2 class="text-3xl font-bold text-purple-800">Proceso de Cultivo</h2>
+                    <p class="text-purple-600">Inoculación, incubación y fructificación</p>
+                </div>
+            </div>
+            
+            <!-- Sistemas de Cultivo -->
+            <div class="mb-8 bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-xl">
+                <h3 class="text-xl font-bold text-purple-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">🏭</span>
+                    Sistemas de Cultivo
+                </h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-purple-400">
+                        <h4 class="font-semibold text-purple-700 mb-2">📦 Bolsas</h4>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>• Polietileno 0.05-0.08mm</li>
+                            <li>• Capacidad: 1-5 kg</li>
+                            <li>• Filtro microporo</li>
+                            <li>• Fácil manejo</li>
+                            <li>• Ideal para principiantes</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-purple-500">
+                        <h4 class="font-semibold text-purple-700 mb-2">🏠 Estantes</h4>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>• Bandejas perforadas</li>
+                            <li>• Múltiples niveles</li>
+                            <li>• Mejor aprovechamiento</li>
+                            <li>• Control individual</li>
+                            <li>• Producción media</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-purple-600">
+                        <h4 class="font-semibold text-purple-700 mb-2">🏢 Túneles</h4>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>• Sistemas automatizados</li>
+                            <li>• Control climático</li>
+                            <li>• Alta capacidad</li>
+                            <li>• Producción comercial</li>
+                            <li>• Mayor inversión</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fases del Cultivo Expandidas -->
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-gradient-to-br from-purple-100 to-purple-200 p-6 rounded-xl">
+                    <div class="text-4xl mb-4 text-center">💉</div>
+                    <h3 class="text-xl font-bold text-purple-800 mb-3 text-center">Inoculación</h3>
+                    <ul class="text-sm space-y-2 mb-4">
+                        <li>• Condiciones estériles</li>
+                        <li>• 2-5% de semilla (peso húmedo)</li>
+                        <li>• Mezcla homogénea</li>
+                        <li>• Empaque inmediato</li>
+                        <li>• Sellado hermético</li>
+                    </ul>
+                    <div class="bg-white p-3 rounded text-xs">
+                        <strong>Crítico:</strong> Evitar contaminación cruzada, usar guantes estériles, ambiente limpio
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-100 to-blue-200 p-6 rounded-xl">
+                    <div class="text-4xl mb-4 text-center">🌡️</div>
+                    <h3 class="text-xl font-bold text-blue-800 mb-3 text-center">Incubación</h3>
+                    <ul class="text-sm space-y-2 mb-4">
+                        <li>• Temperatura: 20-25°C</li>
+                        <li>• Humedad: 70-75%</li>
+                        <li>• Oscuridad total</li>
+                        <li>• Ventilación mínima</li>
+                        <li>• Duración: 15-21 días</li>
+                    </ul>
+                    <div class="bg-white p-3 rounded text-xs">
+                        <strong>Objetivo:</strong> Colonización completa del sustrato por el micelio
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-green-100 to-green-200 p-6 rounded-xl">
+                    <div class="text-4xl mb-4 text-center">🍄</div>
+                    <h3 class="text-xl font-bold text-green-800 mb-3 text-center">Fructificación</h3>
+                    <ul class="text-sm space-y-2 mb-4">
+                        <li>• Temperatura: 15-20°C</li>
+                        <li>• Humedad: 85-95%</li>
+                        <li>• Luz indirecta 500-1000 lux</li>
+                        <li>• Ventilación activa</li>
+                        <li>• CO₂ < 1000 ppm</li>
+                    </ul>
+                    <div class="bg-white p-3 rounded text-xs">
+                        <strong>Estímulos:</strong> Shock térmico, luz, ventilación, humedad
+                    </div>
+                </div>
+            </div>
+
+            <!-- Técnicas de Inoculación -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">🧪</span>
+                    Técnicas de Inoculación
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-purple-500">
+                        <h4 class="font-semibold text-purple-800 mb-3">🥄 Inoculación por Capas</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="bg-purple-50 p-3 rounded">
+                                <strong>Procedimiento:</strong>
+                                <ol class="mt-1 space-y-1 list-decimal list-inside">
+                                    <li>Capa de sustrato (5-8 cm)</li>
+                                    <li>Esparcir semilla uniformemente</li>
+                                    <li>Repetir hasta llenar contenedor</li>
+                                    <li>Terminar con capa de sustrato</li>
+                                </ol>
+                            </div>
+                            <div class="text-xs text-purple-600">
+                                <strong>Ventajas:</strong> Distribución uniforme, menor riesgo de contaminación
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-indigo-500">
+                        <h4 class="font-semibold text-indigo-800 mb-3">🌪️ Inoculación por Mezcla</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="bg-indigo-50 p-3 rounded">
+                                <strong>Procedimiento:</strong>
+                                <ol class="mt-1 space-y-1 list-decimal list-inside">
+                                    <li>Mezclar semilla con sustrato</li>
+                                    <li>Homogenizar completamente</li>
+                                    <li>Llenar contenedores</li>
+                                    <li>Compactar ligeramente</li>
+                                </ol>
+                            </div>
+                            <div class="text-xs text-indigo-600">
+                                <strong>Ventajas:</strong> Colonización más rápida, mayor contacto micelio-sustrato
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manejo de Condiciones Ambientales -->
+            <div class="mb-8 bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-xl">
+                <h3 class="text-xl font-bold text-blue-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">🌡️</span>
+                    Control Ambiental Detallado
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-blue-700 mb-3">📊 Parámetros por Fase</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="bg-white p-3 rounded border-l-4 border-purple-400">
+                                <strong>Incubación:</strong>
+                                <ul class="mt-1 space-y-1">
+                                    <li>• Temp: 22-25°C (±1°C)</li>
+                                    <li>• HR: 70-75%</li>
+                                    <li>• CO₂: 5000-20000 ppm</li>
+                                    <li>• Luz: 0 lux (oscuridad)</li>
+                                    <li>• Ventilación: 0.5-1 vol/h</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-green-400">
+                                <strong>Fructificación:</strong>
+                                <ul class="mt-1 space-y-1">
+                                    <li>• Temp: 15-20°C (±2°C)</li>
+                                    <li>• HR: 85-95%</li>
+                                    <li>• CO₂: 400-1000 ppm</li>
+                                    <li>• Luz: 500-1000 lux</li>
+                                    <li>• Ventilación: 4-8 vol/h</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-blue-700 mb-3">⚙️ Equipos de Control</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center bg-white p-2 rounded">
+                                <span class="text-blue-600 mr-2">🌡️</span>
+                                <span><strong>Termostatos:</strong> Control ±0.5°C</span>
+                            </div>
+                            <div class="flex items-center bg-white p-2 rounded">
+                                <span class="text-blue-600 mr-2">💧</span>
+                                <span><strong>Humidificadores:</strong> Ultrasónicos, vapor</span>
+                            </div>
+                            <div class="flex items-center bg-white p-2 rounded">
+                                <span class="text-blue-600 mr-2">💨</span>
+                                <span><strong>Ventiladores:</strong> Flujo laminar</span>
+                            </div>
+                            <div class="flex items-center bg-white p-2 rounded">
+                                <span class="text-blue-600 mr-2">💡</span>
+                                <span><strong>LED:</strong> Espectro 400-700 nm</span>
+                            </div>
+                            <div class="flex items-center bg-white p-2 rounded">
+                                <span class="text-blue-600 mr-2">📊</span>
+                                <span><strong>Sensores:</strong> Dataloggers automáticos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cronograma Visual Expandido -->
+            <div class="bg-white p-6 rounded-xl shadow-lg mb-8">
+                <h3 class="text-xl font-bold text-gray-800 mb-6 text-center">📅 Cronograma Detallado de Producción</h3>
+                <div class="relative mb-8">
+                    <!-- Línea de tiempo -->
+                    <div class="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 to-green-400 transform -translate-y-1/2"></div>
+                    
+                    <!-- Hitos -->
+                    <div class="flex justify-between items-center relative">
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold mb-2">0</div>
+                            <div class="text-sm font-semibold">Inoculación</div>
+                            <div class="text-xs text-gray-600">Día 0</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mb-2">7</div>
+                            <div class="text-sm font-semibold">Inicio Colonización</div>
+                            <div class="text-xs text-gray-600">Día 7</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center text-white font-bold mb-2">15</div>
+                            <div class="text-sm font-semibold">Colonización 100%</div>
+                            <div class="text-xs text-gray-600">Día 15</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold mb-2">18</div>
+                            <div class="text-sm font-semibold">Inducción</div>
+                            <div class="text-xs text-gray-600">Día 18</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold mb-2">22</div>
+                            <div class="text-sm font-semibold">Primordios</div>
+                            <div class="text-xs text-gray-600">Día 22</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mb-2">25</div>
+                            <div class="text-sm font-semibold">1ª Cosecha</div>
+                            <div class="text-xs text-gray-600">Día 25</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white font-bold mb-2">45</div>
+                            <div class="text-sm font-semibold">Fin Ciclo</div>
+                            <div class="text-xs text-gray-600">Día 45</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Detalles por Fase -->
+                <div class="grid md:grid-cols-3 gap-4 text-sm">
+                    <div class="bg-purple-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-purple-800 mb-2">🔬 Fase de Incubación (0-18 días)</h4>
+                        <ul class="space-y-1 text-gray-700">
+                            <li>• Días 0-3: Adaptación del micelio</li>
+                            <li>• Días 4-10: Crecimiento exponencial</li>
+                            <li>• Días 11-15: Colonización completa</li>
+                            <li>• Días 16-18: Maduración del micelio</li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-green-800 mb-2">🍄 Fase de Fructificación (18-35 días)</h4>
+                        <ul class="space-y-1 text-gray-700">
+                            <li>• Días 18-20: Inducción de primordios</li>
+                            <li>• Días 21-24: Desarrollo de hongos</li>
+                            <li>• Días 25-28: Primera cosecha</li>
+                            <li>• Días 29-35: Segunda cosecha</li>
+                        </ul>
+                    </div>
+                    <div class="bg-orange-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-orange-800 mb-2">📊 Rendimientos Esperados</h4>
+                        <ul class="space-y-1 text-gray-700">
+                            <li>• 1ª cosecha: 60-70% del total</li>
+                            <li>• 2ª cosecha: 20-25% del total</li>
+                            <li>• 3ª cosecha: 10-15% del total</li>
+                            <li>• Eficiencia biológica: 15-25%</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agricultura de Precisión -->
+            <div class="mb-8 bg-gradient-to-r from-emerald-50 to-green-50 p-6 rounded-xl">
+                <h3 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">🎯</span>
+                    Agricultura de Precisión en Hongos
+                </h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-emerald-400">
+                        <h4 class="font-semibold text-emerald-700 mb-2">📊 Big Data</h4>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>• Análisis de patrones de crecimiento</li>
+                            <li>• Optimización de recursos</li>
+                            <li>• Predicción de rendimientos</li>
+                            <li>• Trazabilidad completa</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-400">
+                        <h4 class="font-semibold text-green-700 mb-2">🤖 Robótica</h4>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>• Cosecha automatizada</li>
+                            <li>• Inoculación precisa</li>
+                            <li>• Clasificación por IA</li>
+                            <li>• Empaque inteligente</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-teal-400">
+                        <h4 class="font-semibold text-teal-700 mb-2">🌐 Blockchain</h4>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>• Certificación orgánica</li>
+                            <li>• Cadena de suministro</li>
+                            <li>• Autenticidad del producto</li>
+                            <li>• Comercio justo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Indicadores de Progreso -->
+            <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded-xl">
+                <h3 class="text-xl font-bold text-indigo-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">📈</span>
+                    Indicadores de Progreso y Calidad
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-indigo-700 mb-3">✅ Signos de Éxito</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center bg-white p-2 rounded">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span>Micelio blanco y denso</span>
+                            </div>
+                            <div class="flex items-center bg-white p-2 rounded">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span>Colonización uniforme</span>
+                            </div>
+                            <div class="flex items-center bg-white p-2 rounded">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span>Ausencia de olores extraños</span>
+                            </div>
+                            <div class="flex items-center bg-white p-2 rounded">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span>Primordios abundantes</span>
+                            </div>
+                            <div class="flex items-center bg-white p-2 rounded">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span>Desarrollo sincronizado</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-red-700 mb-3">⚠️ Señales de Alerta</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center bg-white p-2 rounded">
+                                <span class="text-red-600 mr-2">✗</span>
+                                <span>Manchas de colores (verde, negro)</span>
+                            </div>
+                            <div class="flex items-center bg-white p-2 rounded">
+                                <span class="text-red-600 mr-2">✗</span>
+                                <span>Olores desagradables</span>
+                            </div>
+                            <div class="flex items-center bg-white p-2 rounded">
+                                <span class="text-red-600 mr-2">✗</span>
+                                <span>Crecimiento lento o irregular</span>
+                            </div>
+                            <div class="flex items-center bg-white p-2 rounded">
+                                <span class="text-red-600 mr-2">✗</span>
+                                <span>Exceso de humedad en bolsas</span>
+                            </div>
+                            <div class="flex items-center bg-white p-2 rounded">
+                                <span class="text-red-600 mr-2">✗</span>
+                                <span>Formación de primordios prematura</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 5: Parámetros Óptimos -->
+        <section class="infographic-section section-parameters">
+            <div class="flex items-center mb-6">
+                <span class="icon-large">📊</span>
+                <div>
+                    <h2 class="text-3xl font-bold text-cyan-800">Parámetros Óptimos</h2>
+                    <p class="text-cyan-600">Condiciones ideales por especie</p>
+                </div>
+            </div>
+            
+            <!-- Comparación de Variedades de Pleurotus -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-cyan-800 mb-6 text-center flex items-center justify-center">
+                    <span class="text-3xl mr-3">📊</span>
+                    Parámetros Óptimos por Variedad de Pleurotus
+                </h3>
+                <div class="comparison-table overflow-hidden">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 text-white">
+                                <th class="p-4">Parámetro</th>
+                                <th class="p-4">🦪 P. ostreatus</th>
+                                <th class="p-4">🟣 P. djamor</th>
+                                <th class="p-4">🟡 P. citrinopileatus</th>
+                                <th class="p-4">🟢 P. pulmonarius</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover:bg-blue-50 transition-colors">
+                                <td class="font-semibold p-4 bg-gray-50">🌡️ Temp. Incubación</td>
+                                <td class="p-4 bg-blue-50 font-medium">20-25°C</td>
+                                <td class="p-4 bg-purple-50 font-medium">22-28°C</td>
+                                <td class="p-4 bg-yellow-50 font-medium">20-24°C</td>
+                                <td class="p-4 bg-green-50 font-medium">22-30°C</td>
+                            </tr>
+                            <tr class="hover:bg-blue-50 transition-colors">
+                                <td class="font-semibold p-4 bg-gray-50">❄️ Temp. Fructificación</td>
+                                <td class="p-4 bg-blue-50 font-medium">15-20°C</td>
+                                <td class="p-4 bg-purple-50 font-medium">20-25°C</td>
+                                <td class="p-4 bg-yellow-50 font-medium">16-22°C</td>
+                                <td class="p-4 bg-green-50 font-medium">20-28°C</td>
+                            </tr>
+                            <tr class="hover:bg-blue-50 transition-colors">
+                                <td class="font-semibold p-4 bg-gray-50">💧 Humedad Relativa</td>
+                                <td class="p-4 bg-blue-50 font-medium">85-95%</td>
+                                <td class="p-4 bg-purple-50 font-medium">80-90%</td>
+                                <td class="p-4 bg-yellow-50 font-medium">85-92%</td>
+                                <td class="p-4 bg-green-50 font-medium">80-90%</td>
+                            </tr>
+                            <tr class="hover:bg-blue-50 transition-colors">
+                                <td class="font-semibold p-4 bg-gray-50">🌊 Humedad Sustrato</td>
+                                <td class="p-4 bg-blue-50 font-medium">65-75%</td>
+                                <td class="p-4 bg-purple-50 font-medium">60-70%</td>
+                                <td class="p-4 bg-yellow-50 font-medium">55-65%</td>
+                                <td class="p-4 bg-green-50 font-medium">60-70%</td>
+                            </tr>
+                            <tr class="hover:bg-blue-50 transition-colors">
+                                <td class="font-semibold p-4 bg-gray-50">⚗️ pH Óptimo</td>
+                                <td class="p-4 bg-blue-50 font-medium">6.0-7.5</td>
+                                <td class="p-4 bg-purple-50 font-medium">6.5-8.0</td>
+                                <td class="p-4 bg-yellow-50 font-medium">6.0-7.0</td>
+                                <td class="p-4 bg-green-50 font-medium">6.0-7.5</td>
+                            </tr>
+                            <tr class="hover:bg-blue-50 transition-colors">
+                                <td class="font-semibold p-4 bg-gray-50">📈 Relación C/N</td>
+                                <td class="p-4 bg-blue-50 font-medium">30-100</td>
+                                <td class="p-4 bg-purple-50 font-medium">25-50</td>
+                                <td class="p-4 bg-yellow-50 font-medium">40-80</td>
+                                <td class="p-4 bg-green-50 font-medium">50-120</td>
+                            </tr>
+                            <tr class="hover:bg-blue-50 transition-colors">
+                                <td class="font-semibold p-4 bg-gray-50">💡 Luz (lux)</td>
+                                <td class="p-4 bg-blue-50 font-medium">500-1000</td>
+                                <td class="p-4 bg-purple-50 font-medium">200-800</td>
+                                <td class="p-4 bg-yellow-50 font-medium">300-600</td>
+                                <td class="p-4 bg-green-50 font-medium">400-1000</td>
+                            </tr>
+                            <tr class="hover:bg-blue-50 transition-colors">
+                                <td class="font-semibold p-4 bg-gray-50">⏱️ Ciclo Total (días)</td>
+                                <td class="p-4 bg-blue-50 font-medium">35-45</td>
+                                <td class="p-4 bg-purple-50 font-medium">30-40</td>
+                                <td class="p-4 bg-yellow-50 font-medium">40-50</td>
+                                <td class="p-4 bg-green-50 font-medium">30-40</td>
+                            </tr>
+                            <tr class="hover:bg-blue-50 transition-colors bg-gradient-to-r from-green-100 to-blue-100">
+                                <td class="font-bold p-4 bg-gray-100">🎯 Rendimiento (%)</td>
+                                <td class="p-4 font-bold text-blue-700">15-25%</td>
+                                <td class="p-4 font-bold text-purple-700">12-20%</td>
+                                <td class="p-4 font-bold text-yellow-700">10-18%</td>
+                                <td class="p-4 font-bold text-green-700">12-22%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Indicadores Visuales -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gradient-to-br from-cyan-50 to-blue-50 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold text-cyan-800 mb-4 flex items-center">
+                        <span class="text-2xl mr-2">🌡️</span>
+                        Control de Temperatura
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Incubación</span>
+                                <span>22.5°C</span>
+                            </div>
+                            <div class="bg-white rounded-full h-3">
+                                <div class="bg-gradient-to-r from-blue-400 to-blue-600 h-3 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Fructificación</span>
+                                <span>17.5°C</span>
+                            </div>
+                            <div class="bg-white rounded-full h-3">
+                                <div class="bg-gradient-to-r from-green-400 to-green-600 h-3 rounded-full" style="width: 58%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold text-blue-800 mb-4 flex items-center">
+                        <span class="text-2xl mr-2">💧</span>
+                        Control de Humedad
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Ambiente</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="bg-white rounded-full h-3">
+                                <div class="bg-gradient-to-r from-cyan-400 to-cyan-600 h-3 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Sustrato</span>
+                                <span>72%</span>
+                            </div>
+                            <div class="bg-white rounded-full h-3">
+                                <div class="bg-gradient-to-r from-blue-400 to-blue-600 h-3 rounded-full" style="width: 72%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 6: Cosecha y Postcosecha -->
+        <section class="infographic-section section-harvest">
+            <div class="flex items-center mb-6">
+                <span class="icon-large">🍄</span>
+                <div>
+                    <h2 class="text-3xl font-bold text-red-800">Cosecha y Postcosecha</h2>
+                    <p class="text-red-600">Recolección y manejo del producto</p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                        <span class="text-2xl mr-2">✂️</span>
+                        Técnicas de Cosecha
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
+                            <h4 class="font-semibold text-red-800 mb-2">Momento Óptimo</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• Sombrero expandido 80%</li>
+                                <li>• Antes de liberación de esporas</li>
+                                <li>• Textura firme</li>
+                                <li>• Color característico</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow-sm border">
+                            <h4 class="font-semibold text-gray-800 mb-2">Herramientas</h4>
+                            <div class="flex items-center space-x-4 text-sm">
+                                <span>🔪 Cuchillo limpio</span>
+                                <span>🧤 Guantes</span>
+                                <span>📦 Canastas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                        <span class="text-2xl mr-2">📦</span>
+                        Manejo Postcosecha
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="process-step border-l-red-500">
+                            <div class="step-number bg-red-500">1</div>
+                            <div class="ml-8">
+                                <div class="font-semibold">Limpieza</div>
+                                <div class="text-sm text-gray-600">Remover sustrato adherido</div>
+                            </div>
+                        </div>
+                        <div class="process-step border-l-red-600">
+                            <div class="step-number bg-red-600">2</div>
+                            <div class="ml-8">
+                                <div class="font-semibold">Clasificación</div>
+                                <div class="text-sm text-gray-600">Por tamaño y calidad</div>
+                            </div>
+                        </div>
+                        <div class="process-step border-l-red-700">
+                            <div class="step-number bg-red-700">3</div>
+                            <div class="ml-8">
+                                <div class="font-semibold">Empaque</div>
+                                <div class="text-sm text-gray-600">Bandejas perforadas</div>
+                            </div>
+                        </div>
+                        <div class="process-step border-l-red-800">
+                            <div class="step-number bg-red-800">4</div>
+                            <div class="ml-8">
+                                <div class="font-semibold">Refrigeración</div>
+                                <div class="text-sm text-gray-600">2-4°C, 85% HR</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Productos de Valor Agregado -->
+            <div class="mb-8 bg-gradient-to-r from-rose-50 to-pink-50 p-6 rounded-xl">
+                <h3 class="text-xl font-bold text-rose-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">💎</span>
+                    Productos de Valor Agregado
+                </h3>
+                <div class="grid md:grid-cols-4 gap-4">
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-rose-400">
+                        <h4 class="font-semibold text-rose-700 mb-2">🍄 Frescos Premium</h4>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>• Hongos gourmet</li>
+                            <li>• Empaque atmosférico</li>
+                            <li>• Certificación orgánica</li>
+                            <li>• Marca propia</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-pink-400">
+                        <h4 class="font-semibold text-pink-700 mb-2">🌟 Deshidratados</h4>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>• Polvo de hongos</li>
+                            <li>• Condimentos naturales</li>
+                            <li>• Suplementos nutricionales</li>
+                            <li>• Vida útil extendida</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-400">
+                        <h4 class="font-semibold text-red-700 mb-2">🧪 Extractos</h4>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>• Compuestos bioactivos</li>
+                            <li>• Medicina funcional</li>
+                            <li>• Cosméticos naturales</li>
+                            <li>• Nutracéuticos</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-400">
+                        <h4 class="font-semibold text-orange-700 mb-2">🍽️ Procesados</h4>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>• Hamburguesas vegetales</li>
+                            <li>• Embutidos veganos</li>
+                            <li>• Conservas gourmet</li>
+                            <li>• Snacks saludables</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vida Útil -->
+            <div class="mt-8 bg-gradient-to-r from-red-50 to-pink-50 p-6 rounded-xl">
+                <h3 class="text-xl font-bold text-red-800 mb-4 text-center">⏰ Vida Útil del Producto</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="text-center">
+                        <div class="text-3xl mb-2">🌡️</div>
+                        <div class="font-semibold">Ambiente</div>
+                        <div class="text-sm text-gray-600">1-2 días</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl mb-2">❄️</div>
+                        <div class="font-semibold">Refrigerado</div>
+                        <div class="text-sm text-gray-600">7-10 días</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl mb-2">🧊</div>
+                        <div class="font-semibold">Congelado</div>
+                        <div class="text-sm text-gray-600">6-12 meses</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl mb-2">🌞</div>
+                        <div class="font-semibold">Deshidratado</div>
+                        <div class="text-sm text-gray-600">1-2 años</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 7: Solución de Problemas -->
+        <section class="infographic-section section-problems">
+            <div class="flex items-center mb-6">
+                <span class="icon-large">🔧</span>
+                <div>
+                    <h2 class="text-3xl font-bold text-orange-800">Solución de Problemas</h2>
+                    <p class="text-orange-600">Diagnóstico y tratamiento de problemas comunes</p>
+                </div>
+            </div>
+            
+            <!-- Problemas Más Comunes -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="problem-card">
+                    <div class="flex items-center mb-3">
+                        <span class="text-3xl mr-3">🦠</span>
+                        <h3 class="text-lg font-bold text-red-800">Contaminación por Trichoderma</h3>
+                    </div>
+                    <div class="mb-3">
+                        <strong class="text-red-700">Síntomas:</strong>
+                        <p class="text-sm text-gray-700">Manchas verdes, olor desagradable, crecimiento algodonoso</p>
+                    </div>
+                    <div class="mb-3">
+                        <strong class="text-red-700">Causas:</strong>
+                        <ul class="text-sm text-gray-700 list-disc list-inside">
+                            <li>Esterilización deficiente</li>
+                            <li>Humedad excesiva</li>
+                            <li>Temperatura alta</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <strong class="text-green-700">Soluciones:</strong>
+                        <div class="mt-2">
+                            <span class="solution-badge">Mejorar esterilización</span>
+                            <span class="solution-badge">Controlar humedad</span>
+                            <span class="solution-badge">Fungicidas biológicos</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="flex items-center mb-3">
+                        <span class="text-3xl mr-3">❄️</span>
+                        <h3 class="text-lg font-bold text-red-800">Crecimiento Lento</h3>
+                    </div>
+                    <div class="mb-3">
+                        <strong class="text-red-700">Síntomas:</strong>
+                        <p class="text-sm text-gray-700">Micelio se desarrolla muy lentamente</p>
+                    </div>
+                    <div class="mb-3">
+                        <strong class="text-red-700">Causas:</strong>
+                        <ul class="text-sm text-gray-700 list-disc list-inside">
+                            <li>Temperatura baja</li>
+                            <li>Semilla vieja o de mala calidad</li>
+                            <li>pH inadecuado</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <strong class="text-green-700">Soluciones:</strong>
+                        <div class="mt-2">
+                            <span class="solution-badge">Aumentar temperatura</span>
+                            <span class="solution-badge">Semilla fresca</span>
+                            <span class="solution-badge">Ajustar pH</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="flex items-center mb-3">
+                        <span class="text-3xl mr-3">🚫</span>
+                        <h3 class="text-lg font-bold text-red-800">No Fructifica</h3>
+                    </div>
+                    <div class="mb-3">
+                        <strong class="text-red-700">Síntomas:</strong>
+                        <p class="text-sm text-gray-700">Micelio crece pero no forma hongos</p>
+                    </div>
+                    <div class="mb-3">
+                        <strong class="text-red-700">Causas:</strong>
+                        <ul class="text-sm text-gray-700 list-disc list-inside">
+                            <li>Falta de estímulos ambientales</li>
+                            <li>Humedad baja</li>
+                            <li>Falta de luz</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <strong class="text-green-700">Soluciones:</strong>
+                        <div class="mt-2">
+                            <span class="solution-badge">Shock térmico</span>
+                            <span class="solution-badge">Aumentar humedad</span>
+                            <span class="solution-badge">Luz indirecta</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="flex items-center mb-3">
+                        <span class="text-3xl mr-3">🐛</span>
+                        <h3 class="text-lg font-bold text-red-800">Plagas</h3>
+                    </div>
+                    <div class="mb-3">
+                        <strong class="text-red-700">Síntomas:</strong>
+                        <p class="text-sm text-gray-700">Moscas, ácaros, gusanos en el cultivo</p>
+                    </div>
+                    <div class="mb-3">
+                        <strong class="text-red-700">Causas:</strong>
+                        <ul class="text-sm text-gray-700 list-disc list-inside">
+                            <li>Higiene deficiente</li>
+                            <li>Sustrato contaminado</li>
+                            <li>Ventilación inadecuada</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <strong class="text-green-700">Soluciones:</strong>
+                        <div class="mt-2">
+                            <span class="solution-badge">Trampas pegajosas</span>
+                            <span class="solution-badge">Control biológico</span>
+                            <span class="solution-badge">Mejorar higiene</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Patógenos Emergentes -->
+            <div class="mb-8 bg-gradient-to-r from-red-50 to-rose-50 p-6 rounded-xl">
+                <h3 class="text-xl font-bold text-red-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">🦠</span>
+                    Patógenos Emergentes y Resistencias
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-red-700 mb-3">⚠️ Nuevas Amenazas</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="bg-white p-3 rounded border-l-4 border-red-400">
+                                <strong>Cladobotryum dendroides:</strong>
+                                <p class="text-gray-600">Hongo parásito específico de Pleurotus. Causa "burbuja seca". Resistente a fungicidas.</p>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-orange-400">
+                                <strong>Lecanicillium fungicola:</strong>
+                                <p class="text-gray-600">Patógeno emergente en Agaricus. Causa manchas marrones y deformaciones.</p>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-yellow-400">
+                                <strong>Mycogone perniciosa:</strong>
+                                <p class="text-gray-600">Produce "mole disease" en champiñones. Altamente contagioso.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-red-700 mb-3">🛡️ Estrategias de Manejo Integrado</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="bg-white p-3 rounded border-l-4 border-green-400">
+                                <strong>Control Biológico:</strong>
+                                <p class="text-gray-600">Bacillus subtilis, Trichoderma harzianum como antagonistas naturales.</p>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-blue-400">
+                                <strong>Resistencia Genética:</strong>
+                                <p class="text-gray-600">Selección de cepas resistentes mediante marcadores moleculares.</p>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-purple-400">
+                                <strong>Bioseguridad:</strong>
+                                <p class="text-gray-600">Protocolos estrictos de cuarentena y desinfección preventiva.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Matriz de Diagnóstico -->
+            <div class="mt-8 bg-orange-50 p-6 rounded-xl border-l-4 border-orange-500">
+                <h3 class="text-xl font-bold text-orange-800 mb-4 text-center">🔍 Matriz de Diagnóstico Rápido</h3>
+                <div class="comparison-table">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="bg-gradient-to-r from-orange-500 to-red-500">
+                                <th>Síntoma</th>
+                                <th>Etapa</th>
+                                <th>Causa Probable</th>
+                                <th>Acción Inmediata</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>🟢 Manchas verdes</td>
+                                <td>Cualquiera</td>
+                                <td>Trichoderma</td>
+                                <td class="text-red-600 font-semibold">Aislar y descartar</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td>⚫ Manchas negras</td>
+                                <td>Incubación</td>
+                                <td>Neurospora</td>
+                                <td class="text-red-600 font-semibold">Descartar inmediatamente</td>
+                            </tr>
+                            <tr>
+                                <td>🐛 Moscas</td>
+                                <td>Fructificación</td>
+                                <td>Sciaridae</td>
+                                <td class="text-yellow-600 font-semibold">Trampas pegajosas</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td>💧 Exceso agua</td>
+                                <td>Fructificación</td>
+                                <td>Humedad alta</td>
+                                <td class="text-blue-600 font-semibold">Aumentar ventilación</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resumen Final -->
+        <section class="infographic-section" style="border-left-color: #6366f1;">
+            <div class="text-center">
+                <span class="icon-large pulse-animation">🎯</span>
+                <h2 class="text-3xl font-bold text-indigo-800 mb-4">Puntos Clave del Éxito</h2>
+                <p class="text-indigo-600 mb-8">Factores críticos para un cultivo exitoso</p>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="stat-card bg-gradient-to-br from-green-100 to-green-200">
+                        <div class="text-4xl mb-3">🌱</div>
+                        <div class="font-bold text-green-800">Semilla de Calidad</div>
+                        <div class="text-sm text-green-600">Base del éxito</div>
+                    </div>
+                    <div class="stat-card bg-gradient-to-br from-blue-100 to-blue-200">
+                        <div class="text-4xl mb-3">🌡️</div>
+                        <div class="font-bold text-blue-800">Control Ambiental</div>
+                        <div class="text-sm text-blue-600">Temperatura y humedad</div>
+                    </div>
+                    <div class="stat-card bg-gradient-to-br from-yellow-100 to-yellow-200">
+                        <div class="text-4xl mb-3">🧼</div>
+                        <div class="font-bold text-yellow-800">Higiene Estricta</div>
+                        <div class="text-sm text-yellow-600">Prevención de problemas</div>
+                    </div>
+                    <div class="stat-card bg-gradient-to-br from-purple-100 to-purple-200">
+                        <div class="text-4xl mb-3">📊</div>
+                        <div class="font-bold text-purple-800">Monitoreo Constante</div>
+                        <div class="text-sm text-purple-600">Seguimiento diario</div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 p-8 rounded-2xl border border-indigo-200">
+                    <h3 class="text-2xl font-bold text-indigo-800 mb-6 text-center flex items-center justify-center">
+                        <span class="text-4xl mr-3">🏆</span>
+                        Rendimientos Esperados de Pleurotus
+                    </h3>
+                    
+                    <!-- Gráfico visual de rendimientos -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center mb-8">
+                        <div class="stat-card bg-gradient-to-br from-blue-100 to-blue-200 border-blue-300">
+                            <div class="text-4xl mb-3">🦪</div>
+                            <div class="text-3xl font-bold text-blue-700 mb-2">15-25%</div>
+                            <div class="text-sm text-blue-600 font-medium">P. ostreatus</div>
+                            <div class="text-xs text-gray-500 mt-1">Más productivo</div>
+                        </div>
+                        <div class="stat-card bg-gradient-to-br from-purple-100 to-purple-200 border-purple-300">
+                            <div class="text-4xl mb-3">🟣</div>
+                            <div class="text-3xl font-bold text-purple-700 mb-2">12-20%</div>
+                            <div class="text-sm text-purple-600 font-medium">P. djamor</div>
+                            <div class="text-xs text-gray-500 mt-1">Valor agregado</div>
+                        </div>
+                        <div class="stat-card bg-gradient-to-br from-green-100 to-green-200 border-green-300">
+                            <div class="text-4xl mb-3">🔄</div>
+                            <div class="text-3xl font-bold text-green-700 mb-2">3-4</div>
+                            <div class="text-sm text-green-600 font-medium">Cosechas</div>
+                            <div class="text-xs text-gray-500 mt-1">Por ciclo</div>
+                        </div>
+                        <div class="stat-card bg-gradient-to-br from-orange-100 to-orange-200 border-orange-300">
+                            <div class="text-4xl mb-3">⏰</div>
+                            <div class="text-3xl font-bold text-orange-700 mb-2">35-45</div>
+                            <div class="text-sm text-orange-600 font-medium">Días ciclo</div>
+                            <div class="text-xs text-gray-500 mt-1">Promedio</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Gráfico de barras visual -->
+                    <div class="bg-white/70 p-6 rounded-xl">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 text-center">📊 Comparativa de Eficiencia Biológica</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="w-32 text-sm font-medium text-blue-700">P. ostreatus</div>
+                                <div class="flex-1 bg-gray-200 rounded-full h-6 mx-3">
+                                    <div class="bg-gradient-to-r from-blue-400 to-blue-600 h-6 rounded-full flex items-center justify-end pr-2" style="width: 85%">
+                                        <span class="text-white text-xs font-bold">25%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-32 text-sm font-medium text-green-700">P. pulmonarius</div>
+                                <div class="flex-1 bg-gray-200 rounded-full h-6 mx-3">
+                                    <div class="bg-gradient-to-r from-green-400 to-green-600 h-6 rounded-full flex items-center justify-end pr-2" style="width: 75%">
+                                        <span class="text-white text-xs font-bold">22%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-32 text-sm font-medium text-purple-700">P. djamor</div>
+                                <div class="flex-1 bg-gray-200 rounded-full h-6 mx-3">
+                                    <div class="bg-gradient-to-r from-purple-400 to-purple-600 h-6 rounded-full flex items-center justify-end pr-2" style="width: 65%">
+                                        <span class="text-white text-xs font-bold">20%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-32 text-sm font-medium text-yellow-700">P. citrinopileatus</div>
+                                <div class="flex-1 bg-gray-200 rounded-full h-6 mx-3">
+                                    <div class="bg-gradient-to-r from-yellow-400 to-yellow-600 h-6 rounded-full flex items-center justify-end pr-2" style="width: 60%">
+                                        <span class="text-white text-xs font-bold">18%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
+                    <!-- Métricas de Sostenibilidad -->
+                    <div class="border-t border-indigo-200 pt-6">
+                        <h4 class="text-lg font-bold text-indigo-800 mb-4 text-center">🌱 Impacto Ambiental</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                            <div class="bg-white/50 p-3 rounded-lg">
+                                <div class="text-xl font-bold text-green-600">90%</div>
+                                <div class="text-xs text-gray-600">Menos agua vs vegetales</div>
+                            </div>
+                            <div class="bg-white/50 p-3 rounded-lg">
+                                <div class="text-xl font-bold text-blue-600">0.5kg</div>
+                                <div class="text-xs text-gray-600">CO₂/kg producido</div>
+                            </div>
+                            <div class="bg-white/50 p-3 rounded-lg">
+                                <div class="text-xl font-bold text-purple-600">85%</div>
+                                <div class="text-xs text-gray-600">Residuos reciclados</div>
+                            </div>
+                            <div class="bg-white/50 p-3 rounded-lg">
+                                <div class="text-xl font-bold text-orange-600">1:10</div>
+                                <div class="text-xs text-gray-600">Ratio espacio/proteína</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-16 mt-16 relative overflow-hidden">
+        <!-- Elementos decorativos -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-5 left-10 text-4xl animate-pulse">🦪</div>
+            <div class="absolute top-10 right-20 text-3xl animate-bounce">🌱</div>
+            <div class="absolute bottom-10 left-20 text-5xl">💧</div>
+            <div class="absolute bottom-5 right-10 text-4xl">🌾</div>
+        </div>
+        
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <div class="floating-animation inline-block mb-6">
+                <div class="text-8xl mb-2">🦪</div>
+                <div class="text-2xl">✨</div>
+            </div>
+            
+            <h3 class="text-4xl font-bold mb-6 bg-gradient-to-r from-yellow-200 via-white to-yellow-200 bg-clip-text text-transparent">
+                ¡Cultiva tu Éxito con Pleurotus!
+            </h3>
+            
+            <p class="text-xl opacity-90 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Con conocimiento científico, técnicas apropiadas y dedicación constante, el cultivo de hongos Pleurotus 
+                puede convertirse en una actividad altamente rentable y ambientalmente sostenible.
+            </p>
+            
+            <!-- Estadísticas finales -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-8">
+                <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+                    <div class="text-2xl font-bold text-yellow-300">🌱</div>
+                    <div class="text-lg font-semibold">Sostenible</div>
+                    <div class="text-sm opacity-80">90% menos agua</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+                    <div class="text-2xl font-bold text-green-300">💰</div>
+                    <div class="text-lg font-semibold">Rentable</div>
+                    <div class="text-sm opacity-80">ROI 200-400%</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+                    <div class="text-2xl font-bold text-blue-300">⚡</div>
+                    <div class="text-lg font-semibold">Rápido</div>
+                    <div class="text-sm opacity-80">35-45 días</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+                    <div class="text-2xl font-bold text-purple-300">🏆</div>
+                    <div class="text-lg font-semibold">Productivo</div>
+                    <div class="text-sm opacity-80">Hasta 25% EB</div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 pt-6">
+                <div class="text-lg font-semibold mb-2">
+                    📚 Infografía Técnica - Cultivo de Pleurotus (Hongos Ostra)
+                </div>
+                <div class="text-sm opacity-75">
+                    Guía Visual Completa | Material Educativo Especializado | 2025
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animaciones y efectos interactivos
+        document.addEventListener('DOMContentLoaded', function() {
+            // Efecto de aparición gradual al hacer scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Aplicar animación a todas las secciones
+            document.querySelectorAll('.infographic-section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+
+            // Efecto hover en las tarjetas de estadísticas
+            document.querySelectorAll('.stat-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.05)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(-5px) scale(1)';
+                });
+            });
+
+            // Animación de las barras de progreso
+            function animateProgressBars() {
+                document.querySelectorAll('[style*="width:"]').forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0%';
+                    setTimeout(() => {
+                        bar.style.transition = 'width 1.5s ease-in-out';
+                        bar.style.width = width;
+                    }, 500);
+                });
+            }
+
+            // Ejecutar animación de barras cuando sea visible
+            const progressObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateProgressBars();
+                        progressObserver.unobserve(entry.target);
+                    }
+                });
+            });
+
+            document.querySelectorAll('.section-parameters').forEach(section => {
+                progressObserver.observe(section);
+            });
+
+            // Efecto de pulsación en iconos importantes
+            setInterval(() => {
+                document.querySelectorAll('.pulse-animation').forEach(element => {
+                    element.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        element.style.transform = 'scale(1)';
+                    }, 300);
+                });
+            }, 3000);
+
+            // Smooth scroll para navegación interna
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Función para imprimir la infografía
+        function printInfographic() {
+            window.print();
+        }
+
+        // Función para compartir
+        function shareInfographic() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Infografía: Cultivo de Hongos Comestibles',
+                    text: 'Guía visual completa para el cultivo de hongos comestibles',
+                    url: window.location.href
+                });
+            } else {
+                // Fallback para navegadores que no soportan Web Share API
+                const url = window.location.href;
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('¡Enlace copiado al portapapeles!');
+                });
+            }
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97f3f594567bf7a8',t:'MTc1Nzg5NTYzNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
